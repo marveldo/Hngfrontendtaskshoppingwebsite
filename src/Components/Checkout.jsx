@@ -1,13 +1,9 @@
 import React from "react"
 import { Navbar,Footer } from "./Home";
-import chair from "../DynamicImages/Rectangle.jpg"
-import chair_frame from "../DynamicImages/e8a04f955225b78fbd2a33603a783398.png"
 import another_chair from "../DynamicImages/c72486c8bce99ba217bedda498c54fde.png"
 import random1 from "../DynamicImages/aa17d9064722a97f430fbb0738129ddb.png"
 import random2 from "../DynamicImages/b0fa22f44712750078eae01a179f466a.png"
 import random3 from "../DynamicImages/d9c087f46609867a686e5ba4e5f3341d.png"
-import random4 from "../DynamicImages/ec24b1e75d7137d76e8c59d72787e4ff.png"
-import random5 from "../DynamicImages/f54ecf228a11f4957add002a249440ea.png"
 import { Link } from "react-router-dom";
 
 
@@ -173,7 +169,7 @@ const [data,setdata ] = React.useState(db)
 
             </div>
             
-            <button className="bg-primary py-3 rounded-[8px] text-white text-[16px] font-playdisplay ">Pay Now</button>
+            <Link to="/orders" className="bg-primary py-3 flex justify-center rounded-[8px] text-white text-[16px] font-playdisplay ">Pay Now</Link>
             </div>
            
             

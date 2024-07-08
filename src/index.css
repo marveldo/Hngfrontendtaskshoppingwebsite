@@ -19,6 +19,48 @@
   display: none;
 }
 
+@media screen and (max-width : 690px) and (orientation: portrait) {
+    .popupdiv{
+      flex-direction: column;
+      height : 100%;
+      padding: 1rem;
+      width : 100%;
+      border-radius: 0px;
+    
+      
+    }
+    .popupimgdiv{
+      width : 100%;
+      padding-right: 0;
+    }
+    .popupimg{
+      width : 100%;
+      height : 328px
+    }
+    .popupnavdiv{
+      display : flex
+    }
+    .popupmaindiv{
+      flex-direction: column;
+      justify-content: start;
+    }
+    .popupicon1{
+      display: none;
+    }
+    .popupicon2{
+      display : flex
+    }
+    .popupinfo{
+      padding-left: 0;
+      border-left: 0px;
+      border-top : 2px  solid #8E8E93;
+      
+      margin-top : 2rem;
+      padding-top: 2rem;
+    }
+
+}
+
 @media screen and (max-width:870px) {
   .respad{
     padding : 1rem
@@ -69,15 +111,28 @@
     padding-top: 1.5rem /* 40px */;
     padding-bottom: 2.5rem
   }
+  .largeresfont{
+    font-size: 20px;
+  }
   .largecartfont{
     font-size: 14px;
   }
   .smallcartfont{
     font-size: 12px;
   }
+  .resnavbar{
+    background-color: #F5F5F5;
+  }
   .resgap{
     column-gap: 2rem;
   }
+  .ordercartdiv{
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   
+  }
+  .Navicon{
+    display: flex;
+  }
 
 }
