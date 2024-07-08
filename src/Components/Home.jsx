@@ -1,0 +1,256 @@
+import React from "react";
+import chair from "../DynamicImages/Rectangle.jpg"
+import chair_frame from "../DynamicImages/e8a04f955225b78fbd2a33603a783398.png"
+import another_chair from "../DynamicImages/c72486c8bce99ba217bedda498c54fde.png"
+import random1 from "../DynamicImages/aa17d9064722a97f430fbb0738129ddb.png"
+import random2 from "../DynamicImages/b0fa22f44712750078eae01a179f466a.png"
+import random3 from "../DynamicImages/d9c087f46609867a686e5ba4e5f3341d.png"
+import random4 from "../DynamicImages/ec24b1e75d7137d76e8c59d72787e4ff.png"
+import random5 from "../DynamicImages/f54ecf228a11f4957add002a249440ea.png"
+import { Link } from "react-router-dom";
+
+export const Navbar = () => {
+
+    return (<>
+    <div className="w-[100vw] bg-white   px-6 py-3 flex fixed top-0 justify-between items-center z-50">
+       <div className="font-kavoon text-primary min-[801px]:text-[40px] text-[24px] ">Pendo</div>
+       <div className="flex min-[1250px]:gap-x-28 min-[900px]:gap-x-16 max-[800px]:hidden list-none text-center text-black font-playdisplay ps-3 ">
+        
+          <li className="p-3">Home</li>
+          <li className="p-3">Shop</li>
+          <li className="p-3">About</li>
+          <li className="p-3">Contact</li>
+       </div>
+       <div className="flex gap-x-3">
+        <img src="/StaticImages/Vector.svg" className="p-2" alt="Searchlogo"/>
+        <Link to="/cart"> <img src="/StaticImages/Vector (1).svg" className="p-2" alt="cart logo"/></Link> 
+        <img src="/StaticImages/Vector (2).svg" className="p-2 max-[800px]:hidden" alt="Profile pic"/>
+        <img/>
+
+       </div>
+    </div>
+
+    <div className="w-[100vw] px-6 py-3 flex opacity-0 justify-between items-center">
+       <div className="font-kavoon text-primary text-[40px]">Pendo</div>
+       <div className="flex gap-x-28 list-none text-center text-black font-playdisplay ps-3 ">
+        
+          <li className="p-3">Home</li>
+          <li className="p-3">Shop</li>
+          <li className="p-3">About</li>
+          <li className="p-3">Contact</li>
+       </div>
+       <div className="flex gap-x-3">
+        <img src="/StaticImages/Vector.svg" className="p-2" alt="Searchlogo"/>
+        <img src="/StaticImages/Vector (1).svg" className="p-2" alt="cart logo"/>
+        <img src="/StaticImages/Vector (2).svg" className="p-2" alt="Profile pic"/>
+        <img/>
+
+       </div>
+    </div>
+    </>)
+}
+
+export const Footer = () => {
+      return(
+        <div className="sm:p-28 p-10 bg-primary flex resfooter flex-row  justify-between  w-full">
+            <div className="flex flex-col gap-y-6 w-[33%] mb-7 resmaindiv">
+                <h1 className="font-kavoon text-white text-[40px]">Pendo</h1>
+                <p className="text-white text-[16px] font-playdisplay font-normal  ">At Pendo, we blend the rich heritage of African craftsmanship with modern comfort, creating furniture that tells a story. Each piece is thoughtfully designed to bring the warmth and beauty of Africa into your home, prioritizing both elegance and sustainability.</p>
+                <div className="flex flex-row gap-x-2 list-none">
+                        <li><img src="/StaticImages/Instagram.svg" alt="Instagram"/></li>
+                        <li><img src="/StaticImages/Pinterest.svg" alt="Pinterst"/></li>
+                        <li><img src="/StaticImages/Facebook.svg" alt="Facebook"/></li>
+                        <li><img src="/StaticImages/X.svg" alt="X"/></li>
+              
+                       </div>
+            </div>
+
+            <div className="flex flex-col gap-y-3 text-white text-[14px] items-center resfooterdiv  list-none w-[33%]">
+                        <li>About us</li>
+                        <li> Home</li>
+                        <li>Product</li>
+                        <li>Services</li>
+                      </div>
+
+             <div className="flex flex-col gap-y-3 text-white text-[14px]  items-center resfooterdiv list-none w-[33%] ">
+                        <li>Contact us</li>
+                        <li>Information</li>
+                        <li>Request a quote</li>
+                        <li>Consultation</li>
+                        <li>Help center</li>
+                        <li>Terms and conditions</li>
+                      </div>
+        <div className="flex flex-col gap-y-3 text-white text-[14px]  items-center  resfooterdiv list-none w-[33%] ">
+                        <li>Contact us</li>
+                        <li>Information</li>
+                        <li>Request a quote</li>
+                        <li>Consultation</li>
+                        <li>Help center</li>
+                        <li>Terms and conditions</li>
+                      </div>
+
+             
+        </div>
+      )
+}
+
+export const Home = () => {
+    const db = [{
+        id : 1,
+        name : 'kilimanjaro',
+        description : 'Wooden Living room chair',
+        price : "N85000",
+        picture : another_chair
+    },
+    {
+        id : 2,
+        name : 'kente',
+        description : 'Deep seat arm chair',
+        price : "N65000",
+        picture : random1
+    },
+    {
+        id : 3,
+        name : 'Tonga',
+        description : 'Deep coated arm chair',
+        price : "N45000",
+        picture : random2
+    },
+    {
+        id : 4,
+        name : 'Serengti',
+        description : 'Deep warming chair',
+        price : "N55000",
+        picture : random3
+    },
+    {
+        id : 5,
+        name : 'Timbuktu',
+        description : 'Deep excercising Chair',
+        price : "N75000",
+        picture : random4
+    },
+    {
+        id : 6,
+        name : 'Masia Sofa',
+        description : 'Deep resting',
+        price : "N105000",
+        picture : random5
+    },
+]
+
+const [data,setdata ] = React.useState(db)
+
+    return(
+        <div className="overflow-x-hidden">
+        <Navbar/>
+        <div className="px-28 respad z-10">
+            <div className=" gap-x-60 py-10 flex resnav  justify-center items-center ">
+                <div className="flex flex-col resdiv respad gap-y-16 font-playdisplay w-[50%]">
+                    <div>
+                    <h1 className="min-[1250px]:text-[48px] min-[900px]:text-[32px] resfont  mb-6">
+                     Serengeti Chair
+                     </h1>
+                     <p className="min-[1250px]:text-[16px] min-[900px]:text-[13px] resfontp">
+                     Crafted with premium materials and meticulous design, embrace luxury and ergonomic mastery for a seating experience that celebrates African heritage sophistication and comfort in your home.
+                     </p>
+                    </div>
+                   
+                   <div>
+                     <button className="py-3 px-6 rounded-[8px] text-white flex items-center gap-x-7 bg-primary">
+                        <p>Buy Now </p>
+                        <img src="/StaticImages/Vector arrow.svg" alt="Arrow" />
+                     </button>
+                     </div>
+                </div>
+
+                <div className="w-[50%] resdiv p-3">
+                    <img src={chair} className="w-full" alt="chair_img"/>
+                </div>
+            </div>
+           
+        </div>
+       
+       <div className="px-2">
+          <div className="px-28 respad  flex justify-between items-center py-4">
+            
+           <div className="min-[1250px]:text-[32px] min-[1010px]:text-[23px] font-playdisplay">Best sellers</div>
+           <div className="flex gap-x-6 items-center min-[1250px]:text-[16px] min-[900px]:text-[13px] pe-3">
+              <p>See all</p>
+              <img src="/StaticImages/Vector arrowblack.svg" alt="Arrow"/>
+           </div>
+          </div>
+        </div>
+
+
+       <div className="flex gap-x-1 px-2 py-4 ">
+        <div className="px-28 respad w-full flex gap-x-16 overflow-x-hidden" >
+            <div className="min-w-full h-[450px]  specdiv rounded-[8px]" style={{backgroundImage: `url(${chair_frame})`}}>
+              <div className="w-full h-full flex bg-another-rgba rounded-[8px] items-end p-9">
+                <div className="flex flex-col gap-y-3 text-white font-playdisplay">
+                    <h1 className="text-[24px]">Savanna Sofa</h1>
+                    <div className="text-[16px]">
+                    <p>Made from rich mahogany wood with tribal-inspired patterns, </p>
+                    <p>it invites you to embrace comfort infused with the essence of Africa</p>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="min-w-full h-[450px]  specdiv rounded-[8px]" style={{backgroundImage: `url(${chair_frame})`}}>
+              <div className="w-full h-full flex bg-another-rgba rounded-[8px] items-end p-9">
+                <div className="flex flex-col gap-y-3 text-white font-playdisplay">
+                    <h1 className="text-[24px]">Savanna Sofa</h1>
+                    <div className="text-[16px]">
+                    <p>Made from rich mahogany wood with tribal-inspired patterns, </p>
+                    <p>it invites you to embrace comfort infused with the essence of Africa</p>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div className="min-w-full h-[450px] specdiv rounded-[8px]" style={{backgroundImage: `url(${chair_frame})`}}>
+                <div className="w-full h-full p-4 bg-another-rgba rounded-[8px] items-end">
+
+                </div>
+            </div>
+           
+        </div>
+       
+        
+        
+      </div>
+
+      <div className="ps-28 respad py-4 min-[1250px]:text-[32px] min-[1010px]:text-[23px] font-playdisplay">Catalog</div>
+      <div className="py-10 respad rescatalogdiv px-28 flex gap-y-8 flex-wrap justify-between content-start">
+    {
+       data.map((obj)=> {
+        return( <div key={obj.id} className="flex flex-col w-[21rem] gap-y-2 p-4 rounded-[8px]  bg-white shadow-[#000000] shadow-sm">
+            <div className="w-full relative">
+            <img src={obj.picture} className="w-full" alt="chair"/>
+            <div className="p-3 bg-white absolute top-3 right-3 rounded-full">
+                <img src="/StaticImages/Vector Heart.svg" alt="heart"/>
+            </div>
+            <div className="p-3 bg-[#EE8400] rounded-full absolute top-3 font-playdisplay text-[14px] text-white left-3">
+                New
+            </div>
+            </div>
+            
+            <h1 className="font-playdisplay text-black text-[18px]">{obj.name}</h1>
+            <div className="flex gap-x-1">
+                <img src="/StaticImages/Star 5.svg" alt="star"/>
+                <img src="/StaticImages/Star 5.svg" alt="star"/>
+                <img src="/StaticImages/Star 5.svg" alt="star"/>
+                <img src="/StaticImages/Star 5.svg" alt="star"/>
+                <img src="/StaticImages/Star 5.svg" alt="star"/>
+            </div>
+            <p className="text-black font-playdisplay text-[14px]">{obj.description}</p>
+            <p className="font-playdisplay text-[16px] ">{obj.price}</p>
+        </div>)
+       })
+}
+        </div>
+
+        <Footer/>
+        </div>
+    )
+}

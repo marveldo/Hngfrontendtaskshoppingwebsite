@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Kavoon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+    display: none;
+  }
+
+.specdiv{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: center;
+}
+.resbuttons{
+  display: none;
+}
+
+@media screen and (max-width:870px) {
+  .respad{
+    padding : 1rem
+  }
+  .resnav{
+     flex-direction: column;
+  }
+  .resdiv{
+    width:100%;
+  }
+  .resfont{
+    font-size: 36px;
+  }
+  .resfontp{
+    font-size: 14px;
+  }
+  .rescatalogdiv{
+    justify-content: center;
+  }
+  .resfooter{
+    flex-wrap: wrap;
+    
+
+  }
+  .resmaindiv{
+    width:100%;
+  }
+  .resfooterdiv{
+    align-items: start;
+    width: 30%;
+  }
+  .rescartdiv{
+    width : 100%;
+    justify-content: space-between;
+  }
+  .spec-button{
+    display: none;
+  }
+  .resmaincartdiv{
+    flex-direction: column;
+  }
+  .resbuttons{
+    display: flex;
+    flex-direction: column;
+    column-gap: 2rem;
+  }
+  .resgenpadding{
+    padding-top: 1.5rem /* 40px */;
+    padding-bottom: 2.5rem
+  }
+  .largecartfont{
+    font-size: 14px;
+  }
+  .smallcartfont{
+    font-size: 12px;
+  }
+  .resgap{
+    column-gap: 2rem;
+  }
+  
+
+}
