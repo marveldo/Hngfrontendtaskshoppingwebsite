@@ -134,5 +134,11 @@
   .Navicon{
     display: flex;
   }
+  .Searchicon{
+    display : flex
+  }
+  .Searchicon2{
+    display: none;
+  }
 
 }

@@ -73,10 +73,7 @@ const [data,setdata ] = React.useState(db)
                 </div>
                 <div className="flex flex-col gap-y-4 font-playdisplay text-[20px]">
                     <p className="largecartfont">N{obj.price}</p>
-                    <div className="flex justify-between">
-                        <img src="/StaticImages/Dustbin.svg" alt="delete icon"/>
-                        <p className="text-[14px]">Delete</p>
-                    </div>
+                  
 
                 </div>
                 

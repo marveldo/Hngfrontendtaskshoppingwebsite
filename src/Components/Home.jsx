@@ -23,7 +23,11 @@ export const Navbar = () => {
           <Linker  to="#section-footer" className="p-3">Contact</Linker>
        </div>
        <div className="flex gap-x-3">
-        <img src="/StaticImages/Vector.svg" className="p-2" alt="Searchlogo"/>
+       <div className="relative Searchicon2">
+        <input type="text" className="px-3 py-2 rounded-[8px] bg-[#E3E3E3]" placeholder="Search"/>
+        <img src="/StaticImages/Vector.svg" className=" absolute right-0 top-0 p-2" alt="Searchlogo"/>
+        </div>
+        <img src="/StaticImages/Vector.svg" className="p-2 hidden Searchicon" alt="Searchlogo"/>
         <Link to="/cart"> <img src="/StaticImages/Vector (1).svg" className="p-2" alt="cart logo"/></Link> 
         <img src="/StaticImages/Vector (2).svg" className="p-2 max-[800px]:hidden" alt="Profile pic"/>
         <img src="/StaticImages/Navbar.svg" className="p-2 hidden Navicon" alt="Navicon"/>
@@ -163,6 +167,7 @@ const [Showcard, setshowcard] = React.useState(false)
           <Linker  to="#section-footer" className="p-3">Contact</Linker>
        </div>
        <div className="flex gap-x-3">
+       
         <img src="/StaticImages/Vector.svg" className="p-2" alt="Searchlogo"/>
         <Link to="/cart"> <img src="/StaticImages/Vector (1).svg" className="p-2" alt="cart logo"/></Link> 
         <img src="/StaticImages/Vector (2).svg" className="p-2 max-[800px]:hidden" alt="Profile pic"/>
@@ -287,7 +292,7 @@ const [Showcard, setshowcard] = React.useState(false)
       <div  className="py-10 respad rescatalogdiv px-28 flex gap-y-8 flex-wrap justify-between content-start">
     {
        data.map((obj)=> {
-        return( <div key={obj.id} className="flex flex-col w-[21rem] gap-y-2 p-4 rounded-[8px]  bg-white shadow-[#000000] shadow-sm" onClick={()=>{setshowcard(true)}}>
+        return( <div key={obj.id} className="flex flex-col w-[21rem] gap-y-2 p-4 rounded-[8px]  bg-white  shadow-another-rgba shadow-sm" onClick={()=>{setshowcard(true)}}>
             <div className="w-full relative">
             <img src={obj.picture} className="w-full" alt="chair"/>
             <div className="p-3 bg-white absolute top-3 right-3 rounded-full">
