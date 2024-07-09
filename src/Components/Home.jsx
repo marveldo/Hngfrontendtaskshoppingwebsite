@@ -13,7 +13,7 @@ import { NavHashLink as Linker } from 'react-router-hash-link';
 export const Navbar = () => {
 
     return (<>
-    <div className="w-[100vw] resnavbar bg-white   px-6 py-3 flex fixed top-0 justify-between items-center z-40">
+    <div className="w-[100vw] resnavbar bg-[#F5F5F5]   px-6 py-3 flex fixed top-0 justify-between items-center z-40">
        <div className="font-kavoon text-primary min-[801px]:text-[40px] text-[24px] ">Pendo</div>
        <div className="flex min-[1250px]:gap-x-28 min-[900px]:gap-x-16 max-[800px]:hidden list-none text-center text-black font-playdisplay ps-3 ">
         
@@ -157,7 +157,7 @@ const [Showcard, setshowcard] = React.useState(false)
         <div className={`overflow-x-hidden relative`}>
             <div className={`fixed top-0 ${Showcard? '' : 'hidden'}  h-[100vh] flex popupmaindiv justify-center items-center w-[100vw] bg-another-rgba z-[100]`}>
                 <div className="popupnavdiv hidden m-0">
-                <div className="w-[100vw] resnavbar bg-white   px-6 py-3 flex justify-between items-center z-40">
+                <div className="w-[100vw] resnavbar bg-[#F5F5F5]  px-6 py-3 flex justify-between items-center z-40">
        <div className="font-kavoon text-primary min-[801px]:text-[40px] text-[24px] ">Pendo</div>
        <div className="flex min-[1250px]:gap-x-28 min-[900px]:gap-x-16 max-[800px]:hidden list-none text-center text-black font-playdisplay ps-3 ">
         
