@@ -22,7 +22,7 @@ export const Navbar = () => {
           <Linker to="#section-about" className="p-3">About</Linker>
           <Linker  to="#section-footer" className="p-3">Contact</Linker>
        </div>
-       <div className="flex gap-x-[16px]">
+       <div className="flex gap-x-[16px] items-center">
        <div className="relative Searchicon2">
         <input type="text" className="px-3 py-2 rounded-[8px]  bg-[#E3E3E3]" placeholder="Search"/>
         <img src="/StaticImages/Vector.svg" className=" absolute right-0 top-0 p-2" alt="Searchlogo"/>
