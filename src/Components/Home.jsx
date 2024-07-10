@@ -15,7 +15,7 @@ export const Navbar = () => {
     return (<>
     <div className="w-[100vw] resnavbar bg-[#F5F5F5]   px-6 py-3 flex fixed top-0 justify-between items-center z-40">
        <div className="font-kavoon text-primary min-[801px]:text-[40px] text-[24px] ">Pendo</div>
-       <div className="flex min-[1250px]:gap-x-28 min-[900px]:gap-x-16 max-[800px]:hidden list-none text-center text-black font-playdisplay ps-3 ">
+       <div className="flex min-[1250px]:gap-x-24 min-[900px]:gap-x-10 max-[800px]:hidden list-none text-center text-black font-playdisplay ps-3 ">
         
           <Linker to="/" className="p-3">Home</Linker>
           <Linker to="#section-shop" className="p-3">Shop</Linker>
@@ -71,30 +71,37 @@ export const Footer = () => {
                        </div>
             </div>
 
-            <div className="flex flex-col gap-y-3 font-playdisplay text-white text-[14px] items-center resfooterdiv  list-none w-[33%]">
-                        <li className="text-[16px] font-[500]">Shop</li>
+            <div className="flex flex-col  font-playdisplay text-white text-[14px] items-center resfooterdiv  list-none w-[33%]">
+                <div className="flex flex-col gap-y-5">
+                <li className="text-[16px] font-[500]">Shop</li>
                         <li>Bestsellers</li>
                         <li>Catalog</li>
                         <li>Cart</li>
                         <li>Armless chairs</li>
                         <li>Sofas</li>
                         <li>Slipper chairs</li>
+                </div>
+                        
                       </div>
 
-             <div className="flex flex-col gap-y-3 font-playdisplay text-white text-[14px]  items-center resfooterdiv list-none w-[33%] ">
+             <div className="flex flex-col  font-playdisplay text-white text-[14px]  items-center resfooterdiv list-none w-[33%] ">
+
+                <div className="flex flex-col gap-y-5">
                         <li className="text-[16px] font-[500]">Company</li>
                         <li>About</li>
                         <li>Contact</li>
                         <li>Location</li>
-                       
+                 </div>
                       </div>
-        <div className="flex flex-col gap-y-3 font-playdisplay text-white text-[14px]  items-center  resfooterdiv list-none w-[33%] ">
+        <div className="flex flex-col  font-playdisplay text-white text-[14px]  items-center  resfooterdiv list-none w-[33%] ">
+                    <div className="flex flex-col gap-y-5">
                         <li className="text-[16px] font-[500]">Support</li>
                         <li>Privacy</li>
                         <li>Terms and Condition</li>
                         <li>FAQs</li>
                         <li>Login</li>
-                      </div>
+                    </div>
+     </div>
            
        
         </div>
