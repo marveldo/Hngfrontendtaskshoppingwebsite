@@ -295,7 +295,19 @@ const [Showcard, setshowcard] = React.useState(false)
         
       </div>
 
-      <div id="section-shop" className="ps-28 respad py-4 min-[1250px]:text-[32px] min-[1010px]:text-[23px] font-playdisplay">Catalog</div>
+      <div id="section-shop" className="px-28 respad py-4 min-[1250px]:text-[32px] flex justify-between items-center min-[1010px]:text-[23px] font-playdisplay">
+        <h1>Catalog</h1>
+        <div className="Searchicon2 flex items-center gap-x-4 ">
+           <p className="text-[18px]">Sort by :</p>
+           <div className="relative p-0 flex items-center">
+           <img className="absolute top-4 right-5" src="/StaticImages/Dropdown.svg"/>
+           <select className="bg-[#F5F5F5] text-[12px] appearance-none  w-[206px] p-3 ">
+                  <option>Sofas</option>
+           </select>
+           </div>
+        </div>
+        
+        </div>
       <div  className="py-10 respad rescatalogdiv px-28 grid grid-cols-3 gap-x-[24px] max-[800px]:grid-cols-1 gap-y-[24px] ">
     {
        data.map((obj)=> {
