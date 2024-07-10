@@ -41,7 +41,7 @@ const [data,setdata ] = React.useState(db)
          <Navbar/>
          <div className="px-28 respad">
             <div className="w-full pt-24  pb-10  p flex flex-col items-center text-center gap-y-5">
-            <img src="StaticImages/Vectororder-confirmed.svg" alt="Check mark"/>
+            <img src="StaticImages/Vectororder-confirmed.svg" className="min-[800px]:w-[120px] min-[800px]:h-[120px]" alt="Check mark"/>
             <h1 className="font-playdisplay text-[40px] largresfont">We've got your order</h1>
             <p className="font-playdisplay text-[20px] largecartfont">We’ll let your know when it ships and headed your way</p>
             <button className="py-3 border-black border-2 text-[16px] largecartfont hover:text-white hover:bg-black px-6 font-playdisplay font-[500] rounded-[8px]">Track your order here</button>
