@@ -13,16 +13,16 @@ import { NavHashLink as Linker } from 'react-router-hash-link';
 export const Navbar = () => {
 
     return (<>
-    <div className="w-[100vw] resnavbar bg-[#F5F5F5]   px-6 py-3 flex fixed top-0 justify-between items-center z-40">
-       <div className="font-kavoon text-primary min-[801px]:text-[40px] text-[24px] ">Pendo</div>
-       <div className="flex min-[1250px]:gap-x-24 min-[900px]:gap-x-10 max-[800px]:hidden list-none text-center text-black font-playdisplay ps-3 ">
+    <div className="w-[100vw] resnavbar bg-[#F5F5F5]   px-3 py-3 flex fixed top-0 justify-between items-center z-40">
+       <div className="font-kavoon text-primary min-[801px]:text-[40px] text-[24px] pe-20">Pendo</div>
+       <div className="flex min-[1250px]:gap-x-24  min-[900px]:gap-x-10 max-[800px]:hidden list-none text-center text-black font-playdisplay  ">
         
           <Linker to="/" className="p-3">Home</Linker>
           <Linker to="#section-shop" className="p-3">Shop</Linker>
           <Linker to="#section-about" className="p-3">About</Linker>
           <Linker  to="#section-footer" className="p-3">Contact</Linker>
        </div>
-       <div className="flex gap-x-3">
+       <div className="flex gap-x-[16px]">
        <div className="relative Searchicon2">
         <input type="text" className="px-3 py-2 rounded-[8px]  bg-[#E3E3E3]" placeholder="Search"/>
         <img src="/StaticImages/Vector.svg" className=" absolute right-0 top-0 p-2" alt="Searchlogo"/>
