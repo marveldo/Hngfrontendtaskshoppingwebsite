@@ -24,7 +24,7 @@ export const Navbar = () => {
        </div>
        <div className="flex gap-x-3">
        <div className="relative Searchicon2">
-        <input type="text" className="px-3 py-2 rounded-[8px] bg-[#E3E3E3]" placeholder="Search"/>
+        <input type="text" className="px-3 py-2 rounded-[8px]  bg-[#E3E3E3]" placeholder="Search"/>
         <img src="/StaticImages/Vector.svg" className=" absolute right-0 top-0 p-2" alt="Searchlogo"/>
         </div>
         <img src="/StaticImages/Vector.svg" className="p-2 hidden Searchicon" alt="Searchlogo"/>
@@ -296,10 +296,10 @@ const [Showcard, setshowcard] = React.useState(false)
       </div>
 
       <div id="section-shop" className="ps-28 respad py-4 min-[1250px]:text-[32px] min-[1010px]:text-[23px] font-playdisplay">Catalog</div>
-      <div  className="py-10 respad rescatalogdiv px-28 flex gap-y-8 flex-wrap justify-between content-start">
+      <div  className="py-10 respad rescatalogdiv px-28 grid grid-cols-3 gap-x-[24px] max-[800px]:grid-cols-1 gap-y-[24px] ">
     {
        data.map((obj)=> {
-        return( <div key={obj.id} className="flex flex-col w-[21rem] gap-y-2 p-4 rounded-[8px]  bg-white  shadow-another-rgba shadow-sm" onClick={()=>{setshowcard(true)}}>
+        return( <div key={obj.id} className="flex flex-col  gap-y-2 p-4 rounded-[8px]  bg-white  shadow-another-rgba shadow-sm" onClick={()=>{setshowcard(true)}}>
             <div className="w-full relative">
             <img src={obj.picture} className="w-full" alt="chair"/>
             <div className="p-3 bg-white absolute top-3 right-3 rounded-full">
