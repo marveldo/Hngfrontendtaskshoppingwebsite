@@ -272,22 +272,6 @@ const [Showcard, setshowcard] = React.useState(false)
               </div>
             </div>
 
-            <div className="min-w-full h-[450px]  specdiv rounded-[8px]" style={{backgroundImage: `url(${chair_frame})`}}>
-              <div className="w-full h-full flex bg-another-rgba rounded-[8px] items-end p-9">
-                <div className="flex flex-col gap-y-3 text-white font-playdisplay">
-                    <h1 className="text-[24px]">Savanna Sofa</h1>
-                    <div className="text-[16px]">
-                    <p>Made from rich mahogany wood with tribal-inspired patterns, </p>
-                    <p>it invites you to embrace comfort infused with the essence of Africa</p>
-                    </div>
-                </div>
-              </div>
-            </div>
-            <div className="min-w-full h-[450px] specdiv rounded-[8px]" style={{backgroundImage: `url(${chair_frame})`}}>
-                <div className="w-full h-full p-4 bg-another-rgba rounded-[8px] items-end">
-
-                </div>
-            </div>
            
         </div>
        
