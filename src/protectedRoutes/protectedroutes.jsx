@@ -50,7 +50,7 @@ export const RouteProtected = ({children}) => {
         const app_id = process.env.REACT_APP_APP_ID
         
         try{
-        const response = await axios.get(`products?organization_id=${org_id}&reverse_sort=false&page=1&size=8&Appid=${app_id}&Apikey=${api_key}`)
+        const response = await axios.get(`https://api.timbu.cloud/products?organization_id=${org_id}&reverse_sort=false&page=1&size=8&Appid=${app_id}&Apikey=${api_key}`)
         dispatch(Postproducts(response.data.items))
         }
         catch(error){
