@@ -21,8 +21,8 @@ export const Homeprotected = ({children}) => {
         try{
         const response = await axios.get(`products?organization_id=${org_id}&reverse_sort=false&page=1&size=8&Appid=${app_id}&Apikey=${api_key}`)
         setdata(response.data.items)
-        console.log(data)
         dispatch(Postproducts(response.data.items))
+        console.log(response.data)
         }
         catch(error){
          console.error(error)
