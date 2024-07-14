@@ -23,7 +23,7 @@ export const Homeprotected = ({children}) => {
         dispatch(Postproducts(response.data.items))
         }
         catch(error){
-        console.error(error)
+         console.error(error)
         }
         finally{
             setloading(false)
