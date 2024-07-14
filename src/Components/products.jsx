@@ -8,11 +8,12 @@ import { Addtocartproducts } from "../logic";
 export const Productssection = () => {
 const Products = useSelector(state => state.Products)
 
-const [data,setdata ] = React.useState(Products.data.slice(0,10))
+const [data,setdata ] = React.useState(Products.data.slice(0,9))
 const [Showcard, setshowcard] = React.useState(false)
 const [broughtoutdata, setbroughtoutdata] = React.useState(null)
 const dispatch = useDispatch()
 const navigate = useNavigate()
+
     
  const searchdata = (event) => {
     const value = event.target.value
@@ -128,9 +129,9 @@ const navigate = useNavigate()
              <div className="pt-24 pb-9 w-full flex justify-center mb-40">
                
                  <div className="flex gap-x-3">
-                    <div className="py-2 px-4 text-white cursor-pointer bg-black rounded-[16px]" onClick={()=>{setdata(Products.data.slice(0,10))}}>1</div>
-                    <div className={`py-2 ${Products.data.length <= 10 ? 'hidden' : ''} px-4 text-black cursor-pointer bg-white rounded-[16px]`} onClick={()=> {setdata(Products.data.slice(11,20))}}>2</div>
-                    <div className={`py-2 px-4 ${Products.data.length <= 20 ? 'hidden' : ''}   text-black cursor-pointer bg-white rounded-[16px]`} onClick={()=> {setdata(Products.data.slice(21,30))}}>3</div>
+                    <div className="py-2 px-4 text-white cursor-pointer bg-black rounded-[16px]" onClick={()=>{setdata(Products.data.slice(0,9))}}>1</div>
+                    <div className={`py-2 ${Products.data.length <= 10 ? 'hidden' : ''} px-4 text-white cursor-pointer bg-black rounded-[16px]`} onClick={()=> {setdata(Products.data.slice(10,20))}}>2</div>
+                    <div className={`py-2 px-4 ${Products.data.length <= 20 ? 'hidden' : ''}   text-white cursor-pointer bg-black rounded-[16px]`} onClick={()=> {setdata(Products.data.slice(21,30))}}>3</div>
                  </div>
           
 
