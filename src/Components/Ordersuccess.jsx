@@ -1,42 +1,12 @@
 import React from "react"
 import { Navbar,Footer } from "./Home"
-import random1 from "../DynamicImages/aa17d9064722a97f430fbb0738129ddb.png"
-import random2 from "../DynamicImages/b0fa22f44712750078eae01a179f466a.png"
-import random3 from "../DynamicImages/d9c087f46609867a686e5ba4e5f3341d.png"
-import another_chair from "../DynamicImages/c72486c8bce99ba217bedda498c54fde.png"
-import { Link } from "react-router-dom"
+import { useSelector } from "react-redux"
+
 
 
 export const Orders = () =>{
-    const db = [{
-        id : 1,
-        name : 'kilimanjaro',
-        description : 'Wooden Living room chair',
-        price : 85000,
-        picture : another_chair,
-        quantity : 3
-    },
-    {
-        id : 2,
-        name : 'kente',
-        description : 'Deep seat arm chair',
-        price : 65000,
-        picture : random1,
-        quantity : 2,
-    },
-    {
-        id : 3,
-        name : 'Tonga',
-        description : 'Deep coated arm chair',
-        price : 45000,
-        picture : random2,
-        quantity : 4,
-    },
-  
-    
-]
-
-const [data,setdata ] = React.useState(db)
+    const Cartitems = useSelector(state => state.Cartitems)
+    const data = Cartitems.data
     return(<div className="overflow-hidden">
          <Navbar/>
          <div className="px-28 respad">
@@ -57,24 +27,6 @@ const [data,setdata ] = React.useState(db)
                 </div>
              </div>
              <div className="pt-16">
-             { data.map((obj)=>{
-              return(
-                <div key={obj.id} className="w-full flex justify-between  py-2">
-                <div className="flex gap-x-10 resgap">
-                    <img src={obj.picture} className="w-[100px] h-[100px] rounded-[8px]" alt="chair image"/>
-                    <div className="flex flex-col gap-y-2">
-                        <h1 className="font-playdisplay text-[20px] font-[500] largecartfont">{obj.name}</h1>
-                        <p className="font-playdisplay text-[14px] text-[#128E1E] smallcartfont">Qty : {obj.quantity}</p>
-
-                    </div>
-                </div>
-                <div className="flex flex-col gap-y-4 font-playdisplay text-[20px]">
-                    <p className="largecartfont">N{obj.price}</p>
-                </div>
-                
-            </div>
-              )
-           })}
            </div>
            <div className="flex justify-end w-full mb-40 ">
             <div className="flex flex-col rescartdiv gap-y-5">
@@ -86,10 +38,10 @@ const [data,setdata ] = React.useState(db)
                         <p className="font-[700]">Total</p> 
                 </div>
                 <div className="flex flex-col gap-y-7 font-playdisplay text-[16px]">
-                       <p>N{data.reduce((acc, obj)=> acc + obj.price,0)}</p>
+                       <p>N{data.reduce((acc, obj)=> acc + (parseInt(obj.price[0]) * obj.quantity),0)}</p>
                         <p>N10000</p>
                         <p>N2500</p>
-                        <p className="font-[700]">N262500</p>
+                        <p className="font-[700]">N{data.reduce((acc, obj)=> acc + (parseInt(obj.price[0]) * obj.quantity),0) + 10000 + 2500}</p>
                 </div>
 
             </div>

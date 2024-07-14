@@ -1,52 +1,65 @@
 import React from "react";
 import { Navbar,Footer } from "./Home";
-import chair from "../DynamicImages/Rectangle.jpg"
-import chair_frame from "../DynamicImages/e8a04f955225b78fbd2a33603a783398.png"
-import another_chair from "../DynamicImages/c72486c8bce99ba217bedda498c54fde.png"
-import random1 from "../DynamicImages/aa17d9064722a97f430fbb0738129ddb.png"
-import random2 from "../DynamicImages/b0fa22f44712750078eae01a179f466a.png"
-import random3 from "../DynamicImages/d9c087f46609867a686e5ba4e5f3341d.png"
-import random4 from "../DynamicImages/ec24b1e75d7137d76e8c59d72787e4ff.png"
-import random5 from "../DynamicImages/f54ecf228a11f4957add002a249440ea.png"
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { Setcartproducts , RemovefromProducts, Addtocartcart, Minusfromcartcart } from "../logic";
+
 
 export const Cart = () => {
-    const db = [{
-        id : 1,
-        name : 'kilimanjaro',
-        description : 'Wooden Living room chair',
-        price : 85000,
-        picture : another_chair,
-        quantity : 3
-    },
-    {
-        id : 2,
-        name : 'kente',
-        description : 'Deep seat arm chair',
-        price : 65000,
-        picture : random1,
-        quantity : 2,
-    },
-    {
-        id : 3,
-        name : 'Tonga',
-        description : 'Deep coated arm chair',
-        price : 45000,
-        picture : random2,
-        quantity : 4,
-    },
-    {
-        id : 4,
-        name : 'Serengti',
-        description : 'Deep warming chair',
-        price : 55000,
-        picture : random3,
-        quantity : 1
-    },
-    
-]
+const Cartitems = useSelector(state => state.Cartitems)
+const data = Cartitems.data
+const dispatch = useDispatch()
 
-const [data,setdata ] = React.useState(db)
+
+
+
+let Cartobjects = ''
+if(data !== null){
+    if(data.length >= 1 ){
+  Cartobjects =  data.map((obj,index)=>{
+    return(
+      <div key={obj.id} className="w-full flex justify-between border-b-[#CAC4D0] border-b-2 py-8">
+      <div className="flex gap-x-10 resgap">
+          <img src={`https://api.timbu.cloud/images/${obj.picture}`} className="w-[100px] h-[100px] rounded-[8px]" alt="chair image"/>
+          <div className="flex flex-col gap-y-2">
+              <h1 className="font-playdisplay text-[20px] font-[500] largecartfont">{obj.name}</h1>
+              <p className="smallcartfont">{obj.description.slice(0,25)}.....</p>
+              <div className="flex gap-x-3 items-center">
+              <img src='/StaticImages/Vectoraddcartbutton.svg' className="cursor-pointer" alt="add" onClick={()=>{dispatch(Minusfromcartcart(obj))}}/>
+              <p className="font-playdisplay text-[17px] text-[#128E1E] smallcartfont">{obj.quantity}</p>
+              <img src="/StaticImages/Vectorminuscartbutton.svg" className="cursor-pointer" alt="minus"  onClick={()=> {dispatch(Addtocartcart(obj))}}/>
+              </div>
+
+          </div>
+      </div>
+      <div className="flex flex-col gap-y-4 font-playdisplay text-[20px]">
+          <p className="largecartfont">N{parseInt(obj.price[0]) * obj.quantity}</p>
+          <div className="flex justify-between cursor-pointer" onClick={()=>{dispatch(RemovefromProducts(obj.id))}}>
+              <img src="/StaticImages/Dustbin.svg" alt="delete icon"/>
+              <p className="text-[14px]">Delete</p>
+          </div>
+
+      </div>
+      
+  </div>
+    )
+ })
+}
+else{
+    Cartobjects = <div className="h-[100vh] w-[100%] flex font-playdisplay pt-28">
+    <div className="flex flex-col gap-y-3 text-center w-full">
+        <h1 className="font-semibold text-[28px]">Your Cart is Empty</h1>
+        <p className="font-normal text-[20px]">Looks like you haven't added anything to your cart yet. Start shopping now to see your selections here!</p>
+    </div>
+</div>
+}
+}
+
+React.useEffect(()=>{
+    dispatch(Setcartproducts())
+},[])
+
+
 
     return(<div className="overflow-hidden">
          <Navbar/>
@@ -61,33 +74,10 @@ const [data,setdata ] = React.useState(db)
 
             </div>
            <div className="w-full border-t-2 border-t-[#CAC4D0]">
-           { data.map((obj)=>{
-              return(
-                <div key={obj.id} className="w-full flex justify-between border-b-[#CAC4D0] border-b-2 py-8">
-                <div className="flex gap-x-10 resgap">
-                    <img src={obj.picture} className="w-[100px] h-[100px] rounded-[8px]" alt="chair image"/>
-                    <div className="flex flex-col gap-y-2">
-                        <h1 className="font-playdisplay text-[20px] font-[500] largecartfont">{obj.name}</h1>
-                        <p className="smallcartfont">{obj.description}</p>
-                        <p className="font-playdisplay text-[14px] text-[#128E1E] smallcartfont">Qty : {obj.quantity}</p>
-
-                    </div>
-                </div>
-                <div className="flex flex-col gap-y-4 font-playdisplay text-[20px]">
-                    <p className="largecartfont">N{obj.price}</p>
-                    <div className="flex justify-between">
-                        <img src="/StaticImages/Dustbin.svg" alt="delete icon"/>
-                        <p className="text-[14px]">Delete</p>
-                    </div>
-
-                </div>
-                
-            </div>
-              )
-           })}
+              {Cartobjects}
              </div>
 
-             <div className="pt-24 pb-9 w-full flex resmaincartdiv justify-end mb-40">
+             <div className={`pt-24 pb-9 w-full ${data.length < 1 ? 'hidden':'flex'} resmaincartdiv justify-end mb-40`}>
                 <div className="flex gap-x-4 rescartdiv ">
                     <div className="flex gap-y-7 flex-col font-playdisplay text-[16px]">
                         <p>Subtotal</p>
@@ -100,14 +90,14 @@ const [data,setdata ] = React.useState(db)
                         </Link>
                     </div>
                     <div className="flex gap-y-7 flex-col items-end font-playdisplay text-[16px]">
-                    <p>N{data.reduce((acc, obj)=> acc + obj.price,0)}</p>
+                    <p>N{data.reduce((acc, obj)=> acc + (parseInt(obj.price[0]) * obj.quantity),0)}</p>
                         <p>N10000</p>
                         <p>N2500</p>
-                        <p className="font-[700]">N262500</p>
+                        <p className="font-[700]">N{data.reduce((acc, obj)=> acc + (parseInt(obj.price[0]) * obj.quantity),0) + 10000+2500}</p>
                         <Link to="/checkout" className="flex gap-x-4 p-4 spec-button bg-primary rounded-[8px] items-center ">
                            
                             <p className="text-[16px] text-white">Continue to payment</p>
-                            <img src="/StaticImages/Vector arrow.svg" alt="left arrow"/>
+                            <img src="./StaticImages/Vectorarrow.svg" alt="left arrow"/>
                         </Link>
                     </div>
 
@@ -121,7 +111,7 @@ const [data,setdata ] = React.useState(db)
                         <Link to="/checkout" className="flex gap-x-4 p-4  bg-primary rounded-[8px] items-center ">
                            
                             <p className="text-[16px] text-white">Continue to payment</p>
-                            <img src="/StaticImages/Vector arrow.svg" alt="left arrow"/>
+                            <img src="/StaticImages/Vectorarrow.svg" alt="left arrow"/>
                         </Link>
                         </div>
                 </div>

@@ -1,39 +1,57 @@
 import React from "react";
-import chair from "../DynamicImages/Rectangle.jpg"
-import chair_frame from "../DynamicImages/e8a04f955225b78fbd2a33603a783398.png"
-import another_chair from "../DynamicImages/c72486c8bce99ba217bedda498c54fde.png"
-import random1 from "../DynamicImages/aa17d9064722a97f430fbb0738129ddb.png"
-import random2 from "../DynamicImages/b0fa22f44712750078eae01a179f466a.png"
-import random3 from "../DynamicImages/d9c087f46609867a686e5ba4e5f3341d.png"
-import random4 from "../DynamicImages/ec24b1e75d7137d76e8c59d72787e4ff.png"
-import random5 from "../DynamicImages/f54ecf228a11f4957add002a249440ea.png"
-import { Link } from "react-router-dom";
-import { NavHashLink as Linker } from 'react-router-hash-link';
 
-export const Navbar = () => {
+
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { Addtocartproducts } from "../logic";
+import { useDispatch } from "react-redux";
+
+export const Navbar = (props) => {
+    const [resnav, setresnav] = React.useState(false)
 
     return (<>
     <div className="w-[100vw] resnavbar bg-[#F5F5F5]   px-3 py-3 flex fixed top-0 justify-between items-center z-40">
        <div className="font-kavoon text-primary min-[801px]:text-[40px] text-[24px] pe-20">Pendo</div>
-       <div className="grid min-[1250px]:gap-x-24 grid-cols-4  min-[900px]:gap-x-10 max-[800px]:hidden list-none text-center text-black font-playdisplay  ">
+       <div className="grid min-[1250px]:gap-x-24 grid-cols-4  min-[900px]:gap-x-10 max-[870px]:hidden list-none text-center text-black font-playdisplay  ">
         
-          <Linker to="/" className="p-3">Home</Linker>
-          <Linker to="#section-shop" className="p-3">Shop</Linker>
-          <Linker to="#section-about" className="p-3">About</Linker>
-          <Linker  to="#section-footer" className="p-3">Contact</Linker>
+          <Link to="/" className="p-3 hover:text-primary">Home</Link>
+          <Link to="/products" className="p-3 hover:text-primary">Shop</Link>
+          <a href="#section-about" className="p-3 hover:text-primary">About</a>
+          <a href="#section-footer" className="p-3 hover:text-primary">Contact</a>
        </div>
        <div className="flex gap-x-[16px] items-center">
        <div className="relative Searchicon2">
-        <input type="text" className="px-3 py-2 rounded-[8px]  bg-[#E3E3E3]" placeholder="Search"/>
+        <input type="text" className="px-3 py-2 rounded-[8px]  bg-[#E3E3E3]" placeholder="Search" onChange={props.change}/>
         <img src="/StaticImages/Vector.svg" className=" absolute right-0 top-0 p-2" alt="Searchlogo"/>
         </div>
         <img src="/StaticImages/Vector.svg" className="p-2 hidden Searchicon" alt="Searchlogo"/>
-        <Link to="/cart"> <img src="/StaticImages/Vector (1).svg" className="p-2" alt="cart logo"/></Link> 
-        <img src="/StaticImages/Vector (2).svg" className="p-2 max-[800px]:hidden" alt="Profile pic"/>
-        <img src="/StaticImages/Navbar.svg" className="p-2 hidden Navicon" alt="Navicon"/>
+        <Link to="/cart"> <img src="/StaticImages/Vector(1).svg" className="p-2" alt="cart logo"/></Link> 
+        <img src="/StaticImages/Vector(2).svg" className="p-2 max-[800px]:hidden" alt="Profile pic"/>
+        <img src="/StaticImages/Navbar.svg" className="p-2 min-[880px]:hidden Navicon cursor-pointer" alt="Navicon" onClick={()=>{setresnav(true)}}/>
 
        </div>
     </div>
+
+    <div className={`fixed top-0 bg-[#F5F5F5] animate__animated animate__slideInRight ${resnav? 'flex': 'hidden'} min-[870px]:hidden w-[100%] h-[100vh] z-[120] px-4 pt-6  justify-between`}>
+        <div className="flex flex-col gap-y-12 text-black font-playdisplay">
+            <h1 className="text-[23px]">Menu</h1>
+            <div className="flex flex-col gap-y-7 text-black font-playdisplay list-none">
+                <Link to="/" onClick={()=>{setresnav(false)}}>Home</Link>
+                <Link to="/products" onClick={()=>{setresnav(false)}}>Shop</Link>
+                <a href="#section-about" onClick={()=>{setresnav(false)}}>About</a>
+                <a href="#section-footer" onClick={()=>{setresnav(false)}}>Contact</a>
+                <Link to="/cart" onClick={()=>{setresnav(false)}}><img src="/StaticImages/Vector(1).svg" className="p-2" alt="cart logo"/></Link>
+                <li>SignUp</li>
+            </div>
+        </div>
+        <div className="flex pt-1">
+        <img src="./StaticImages/Vectorx-cancel.svg" className="w-[20px] h-[20px]  " onClick={()=>{setresnav(false)}} />
+        </div>
+
+    </div>
+
+
 
     <div className="w-[100vw] px-6 py-3 flex opacity-0 justify-between items-center">
        <div className="font-kavoon text-primary text-[40px]">Pendo</div>
@@ -113,72 +131,114 @@ export const Footer = () => {
       )
 }
 
-export const Home = () => {
-    const db = [{
-        id : 1,
-        name : 'kilimanjaro',
-        description : 'Wooden Living room chair',
-        price : "N85000",
-        picture : another_chair
-    },
-    {
-        id : 2,
-        name : 'kente',
-        description : 'Deep seat arm chair',
-        price : "N65000",
-        picture : random1
-    },
-    {
-        id : 3,
-        name : 'Tonga',
-        description : 'Deep coated arm chair',
-        price : "N45000",
-        picture : another_chair
-    },
-    {
-        id : 4,
-        name : 'Serengti',
-        description : 'Deep warming chair',
-        price : "N55000",
-        picture : random3
-    },
-    {
-        id : 5,
-        name : 'Timbuktu',
-        description : 'Deep excercising Chair',
-        price : "N75000",
-        picture : random4
-    },
-    {
-        id : 6,
-        name : 'Masia Sofa',
-        description : 'Deep resting',
-        price : "N105000",
-        picture : random5
-    },
-]
-
-const [data,setdata ] = React.useState(db)
+export const Home = (props) => {
+const [data,setdata ] = React.useState(props.data ? props.data : [])
+const [randomdata, setrandomdata] = React.useState(props.data ? props.data[0]: null)
 const [Showcard, setshowcard] = React.useState(false)
+const [reanimate, setreanimate] = React.useState(true)
+const [broughtoutdata, setbroughtoutdata] = React.useState(null)
+const Products = useSelector(state => state.Products)
+const navigate = useNavigate()
+const dispatch = useDispatch()
+console.log(randomdata)
+
+
+const showcard = (index) => {
+  setbroughtoutdata(data[index])
+  setshowcard(true)
+}
+
+const mainbuttonclick = () =>{
+    setbroughtoutdata(randomdata)
+    setshowcard(true)
+}
+
+const searchdata = (event) => {
+   const value = event.target.value
+   if(value === ''){
+    setdata(Products.data)
+   }
+ else{
+   const filteredata = data.filter((item)=> item.name.toLowerCase().includes(value.toLowerCase()))
+   setdata(filteredata)
+ }
+   
+   
+}
+
+const Cartfunction =()=> {
+    dispatch(Addtocartproducts(broughtoutdata))
+    navigate('/cart')
+}
+let productsdata = ''
+
+if (data){
+    productsdata =  data.map((obj,index)=> {
+        return( <div key={obj.id} className="flex flex-col  gap-y-2 p-4 rounded-[8px] cursor-pointer bg-white  shadow-another-rgba shadow-sm" onClick={()=>{showcard(index)}}>
+            <div className="w-full relative">
+            <img src={`https://api.timbu.cloud/images/${obj.photos[0].url}`} className="w-full   rounded-[8px]" alt="chair"/>
+          
+            </div>
+            
+            <h1 className="font-playdisplay text-black text-[18px]">{obj.name}</h1>
+            <div className="flex gap-x-1">
+                <img src="/StaticImages/Star5.svg" alt="star"/>
+                <img src="/StaticImages/Star5.svg" alt="star"/>
+                <img src="/StaticImages/Star5.svg" alt="star"/>
+                <img src="/StaticImages/Star5.svg" alt="star"/>
+                <img src="/StaticImages/Star5.svg" alt="star"/>
+            </div>
+            <p className="text-black font-playdisplay text-[14px]">{obj.description.slice(0,20)}...........</p>
+            <p className="font-playdisplay text-[16px] ">N{obj.current_price[0].NGN }</p>
+        </div>)
+       })
+}
+else{
+    productsdata = ''
+}
+
+
+ React.useEffect(()=>{
+    setreanimate(true)
+    const intervalid = setInterval(()=>{
+        
+        if(data.length === 0){
+        setrandomdata(null)
+    }
+    else{
+        setrandomdata(data[Math.floor(Math.random() * data.length)]);
+        setreanimate(false)
+    }
+    }, 5000)
+    
+    return () =>  clearInterval(intervalid)
+},[randomdata])
+
+
+
+
+
+
+
     return(
-        <div className={`overflow-x-hidden relative`}>
-            <div className={`fixed top-0 ${Showcard? '' : 'hidden'}  h-[100vh] flex popupmaindiv justify-center items-center w-[100vw] bg-another-rgba z-[100]`}>
+        <div className={`overflow-x-hidden relative ${Showcard? 'overflow-hidden': ''} z-[50]`}>
+            <div className={`fixed top-0 ${Showcard? '' : 'hidden'}  h-[100vh] flex popupmaindiv  z-[100] justify-center items-center w-[100vw] bg-another-rgba `} >
                 <div className="popupnavdiv hidden m-0">
                 <div className="w-[100vw] resnavbar bg-[#F5F5F5]  px-6 py-3 flex justify-between items-center z-40">
        <div className="font-kavoon text-primary min-[801px]:text-[40px] text-[24px] ">Pendo</div>
        <div className="flex min-[1250px]:gap-x-28 min-[900px]:gap-x-16 max-[800px]:hidden list-none text-center text-black font-playdisplay ps-3 ">
         
-          <Linker to="/" className="p-3">Home</Linker>
-          <Linker to="#section-shop" className="p-3">Shop</Linker>
-          <Linker to="#section-about" className="p-3">About</Linker>
-          <Linker  to="#section-footer" className="p-3">Contact</Linker>
+          <Link to="/" className="p-3">Home</Link>
+          <Link href="/products" className="p-3">Shop</Link>
+          <a href="#section-about" className="p-3">About</a>
+          <a  href="#section-footer" className="p-3">Contact</a>
        </div>
        <div className="flex gap-x-3">
        
-        <img src="/StaticImages/Vector.svg" className="p-2" alt="Searchlogo"/>
-        <Link to="/cart"> <img src="/StaticImages/Vector (1).svg" className="p-2" alt="cart logo"/></Link> 
-        <img src="/StaticImages/Vector (2).svg" className="p-2 max-[800px]:hidden" alt="Profile pic"/>
-        <img src="/StaticImages/Navbar.svg" className="p-2 hidden Navicon" alt="Navicon"/>
+        <img src="./StaticImages/Vector.svg" className="p-2" alt="Searchlogo"/>
+        <Link to="/cart"> <img src="./StaticImages/Vector(1).svg" className="p-2" alt="cart logo"/></Link> 
+        <img src="./StaticImages/Vector(2).svg" className="p-2 max-[800px]:hidden" alt="Profile pic"/>
+        <img src="./StaticImages/Navbar.svg" className="p-2 hidden Navicon" alt="Navicon"/>
         
 
        </div>
@@ -186,30 +246,30 @@ const [Showcard, setshowcard] = React.useState(false)
                 </div>
                 <div className="bg-white p-5 flex rounded-[8px] popupdiv w-[800px] relative overflow-y-auto">
                 <div className="hidden popupicon2 justify-end py-3 px-2" onClick={()=>{setshowcard(false)}}>
-                <img src="/StaticImages/Vectorx-cancel.svg" className="w-[20px] h-[20px]  " />
+                <img src="./StaticImages/Vectorx-cancel.svg" className="w-[20px] h-[20px]  " />
                 </div>
                
                     <div className="pe-12 flex justify-center items-center popupimgdiv w-[120%] relative">
-                        <img src="/StaticImages/Add to wishlistredwishlist.svg" alt="wishlist" className="absolute top-3 right-3 hidden popupicon2"/>
-                        <img src={chair_frame} className="w-[190px] h-[180px] popupimg rounded-[16px]" alt="chair"/>
+                        <img src="./StaticImages/Addtowishlistredwishlist.svg" alt="wishlist" className="absolute top-3 right-3 hidden popupicon2"/>
+                        <img src={broughtoutdata? `https://api.timbu.cloud/images/${broughtoutdata.photos[0].url}`: ''} className="w-[190px] h-[180px] popupimg rounded-[16px]" alt="chair"/>
                     </div>
                     <div className="border-s-2 border-s-[#8E8E93] ps-12 relative popupinfo">
                         
                         <div className="py-2 pe-4 flex flex-col gap-y-4 justify-start relative">
-                            <img src="/StaticImages/Vectorx-cancel.svg" className="absolute top-7 right-7 w-[20px] h-[20px] popupicon1 " onClick={()=>{setshowcard(false)}}/>
-                            <p className="text-[12px] font-playdisplay">ARMLESS CHAIRS</p>
-                            <h1 className="text-[20px] font-playdisplay font-[600]">Tonga</h1>
+                            <img src="./StaticImages/Vectorx-cancel.svg" className="absolute top-7 right-7 w-[20px] h-[20px] popupicon1 " onClick={()=>{setshowcard(false)}}/>
+                            <p className="text-[12px] font-playdisplay">SOFAS</p>
+                            <h1 className="text-[20px] font-playdisplay font-[600]">{broughtoutdata? broughtoutdata.name: ''}</h1>
                             <div className="flex gap-x-1">
-                                <img src="/StaticImages/Star 5.svg" className="w-[24px] h-[24px]" alt="star"/>
-                                <img src="/StaticImages/Star 5.svg" className="w-[24px] h-[24px]" alt="star"/>
-                                <img src="/StaticImages/Star 5.svg" className="w-[24px] h-[24px]" alt="star"/>
-                                <img src="/StaticImages/Star 5.svg" className="w-[24px] h-[24px]" alt="star"/>
-                                <img src="/StaticImages/Star 5.svg" className="w-[24px] h-[24px]" alt="star"/>
+                                <img src="./StaticImages/Star5.svg" className="w-[24px] h-[24px]" alt="star"/>
+                                <img src="./StaticImages/Star5.svg" className="w-[24px] h-[24px]" alt="star"/>
+                                <img src="./StaticImages/Star5.svg" className="w-[24px] h-[24px]" alt="star"/>
+                                <img src="./StaticImages/Star5.svg" className="w-[24px] h-[24px]" alt="star"/>
+                                <img src="./StaticImages/Star5.svg" className="w-[24px] h-[24px]" alt="star"/>
                             </div>
-                            <h1 className="text-[20px] font-playdisplay font-[600]">N100,000</h1>
-                            <p className="text-[12px] font-playdisplay">The Tonga chair is characterized by its artistic and organic shape. The chair has two main components: a large, sweeping backrest and a contoured seat, both crafted from polished wood with rich, warm tones varying from golden yellow to deep amber.  </p>
+                            <h1 className="text-[20px] font-playdisplay font-[600]">N{broughtoutdata? broughtoutdata.current_price[0].NGN : ''}</h1>
+                            <p className="text-[12px] font-playdisplay">{broughtoutdata? broughtoutdata.description : ''} </p>
                             <div className="flex justify-start max-[690px]:justify-center max-[690px]:mt-4">
-                            <button className="flex rounded-[8px] items-center gap-x-3 py-3 px-9 bg-primary resbutton  text-white ">Add to cart <img src="StaticImages/PlusOutline.svg" className="ms-auto hidden popupicon2" alt="plus icon"/></button>
+                            <button className="flex rounded-[8px] items-center gap-x-3 py-3 px-9 bg-primary resbutton  text-white " onClick={Cartfunction}>Add to cart <img src="StaticImages/PlusOutline.svg" className="ms-auto hidden popupicon2" alt="plus icon"/></button>
                             </div>
                             
                         </div>
@@ -218,29 +278,29 @@ const [Showcard, setshowcard] = React.useState(false)
                 </div>
 
             </div>
-        <Navbar/>
+        <Navbar change={searchdata}/>
         <div id="section-home" className="px-28 respad z-10">
-            <div className=" gap-x-60 py-10 flex resnav  justify-center items-center ">
-                <div className="flex flex-col resdiv respad gap-y-16 font-playdisplay w-[50%]">
+            <div className=" gap-x-60 py-10 flex resnav overflow-y-hidden  justify-center items-center ">
+                <div className={`flex flex-col  ${reanimate? 'animate__animated animate__fadeInUp' : ''} resdiv respad gap-y-16 font-playdisplay w-[50%]`}>
                     <div>
                     <h1 className="min-[1250px]:text-[48px] min-[900px]:text-[32px] resfont  mb-6">
-                     Serengeti Chair
+                     {randomdata? randomdata.name: ''}
                      </h1>
                      <p className="min-[1250px]:text-[16px] min-[900px]:text-[13px] resfontp">
-                     Crafted with premium materials and meticulous design, embrace luxury and ergonomic mastery for a seating experience that celebrates African heritage sophistication and comfort in your home.
+                   {randomdata? randomdata.description : ''}
                      </p>
                     </div>
                    
                    <div>
-                     <button className="py-3 px-6 rounded-[8px] text-white flex items-center gap-x-7 bg-primary">
+                     <button className="py-3 px-6 rounded-[8px] text-white flex items-center gap-x-7 bg-primary" onClick={mainbuttonclick}>
                         <p>Buy Now </p>
-                        <img src="/StaticImages/Vector arrow.svg" alt="Arrow" />
+                        <img src="/StaticImages/Vectorarrow.svg" alt="Arrow" />
                      </button>
                      </div>
                 </div>
 
                 <div className="w-[50%] resdiv p-3">
-                    <img src={chair} className="w-full" alt="chair_img"/>
+                    <img src={randomdata?`https://api.timbu.cloud/images/${randomdata.photos[0].url}`: ''} className="w-full" alt="chair_img"/>
                 </div>
             </div>
            
@@ -251,8 +311,8 @@ const [Showcard, setshowcard] = React.useState(false)
             
            <div className="min-[1250px]:text-[32px] min-[1010px]:text-[23px] font-playdisplay">Best sellers</div>
            <div className="flex gap-x-6 items-center min-[1250px]:text-[16px] min-[900px]:text-[13px] pe-3">
-              <p>See all</p>
-              <img src="/StaticImages/Vector arrowblack.svg" alt="Arrow"/>
+              <Link to="/products" className="hover:text-primary cursor-pointer ">See all</Link>
+              <img src="/StaticImages/Vectorarrowblack.svg" alt="Arrow"/>
            </div>
           </div>
         </div>
@@ -260,13 +320,13 @@ const [Showcard, setshowcard] = React.useState(false)
 
        <div  className="flex gap-x-1 px-2 py-4 ">
         <div className="px-28 respad w-full flex gap-x-16 overflow-x-hidden" >
-            <div className="min-w-full h-[450px]  specdiv rounded-[8px]" style={{backgroundImage: `url(${chair_frame})`}}>
+            <div className="min-w-full h-[450px]  specdiv rounded-[8px]" style={{backgroundImage: `url(${randomdata ? 'https://api.timbu.cloud/images/'+ randomdata.photos[0].url : ''})`}}>
               <div className="w-full h-full flex bg-another-rgba rounded-[8px] items-end p-9">
                 <div className="flex flex-col gap-y-3 text-white font-playdisplay">
-                    <h1 className="text-[24px]">Savanna Sofa</h1>
+                    <h1 className="text-[24px]">{ randomdata ? randomdata.name : ''}</h1>
                     <div className="text-[16px]">
-                    <p>Made from rich mahogany wood with tribal-inspired patterns, </p>
-                    <p>it invites you to embrace comfort infused with the essence of Africa</p>
+                    <p>{ randomdata ? randomdata.description.slice(0,58) : ''}</p>
+                    <p>{randomdata ? randomdata.description.slice(58,108) : ''}......</p>
                     </div>
                 </div>
               </div>
@@ -293,32 +353,7 @@ const [Showcard, setshowcard] = React.useState(false)
         
         </div>
       <div  className="py-10 respad rescatalogdiv px-28 grid grid-cols-3 gap-x-[24px] max-[800px]:grid-cols-1 gap-y-[24px] ">
-    {
-       data.map((obj)=> {
-        return( <div key={obj.id} className="flex flex-col  gap-y-2 p-4 rounded-[8px]  bg-white  shadow-another-rgba shadow-sm" onClick={()=>{setshowcard(true)}}>
-            <div className="w-full relative">
-            <img src={obj.picture} className="w-full" alt="chair"/>
-            <div className="p-3 bg-white absolute top-3 right-3 rounded-full">
-                <img src="/StaticImages/Vector Heart.svg" alt="heart"/>
-            </div>
-            <div className="p-3 bg-[#EE8400] rounded-full absolute top-3 font-playdisplay text-[14px] text-white left-3">
-                New
-            </div>
-            </div>
-            
-            <h1 className="font-playdisplay text-black text-[18px]">{obj.name}</h1>
-            <div className="flex gap-x-1">
-                <img src="/StaticImages/Star 5.svg" alt="star"/>
-                <img src="/StaticImages/Star 5.svg" alt="star"/>
-                <img src="/StaticImages/Star 5.svg" alt="star"/>
-                <img src="/StaticImages/Star 5.svg" alt="star"/>
-                <img src="/StaticImages/Star 5.svg" alt="star"/>
-            </div>
-            <p className="text-black font-playdisplay text-[14px]">{obj.description}</p>
-            <p className="font-playdisplay text-[16px] ">{obj.price}</p>
-        </div>)
-       })
-}
+    { productsdata}
         </div>
 
         <Footer/>
