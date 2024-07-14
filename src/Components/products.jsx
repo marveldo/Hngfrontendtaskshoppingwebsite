@@ -23,6 +23,8 @@ const navigate = useNavigate()
   else{
     const filteredata = db.filter((item)=> item.name.toLowerCase().includes(value.toLowerCase()))
     setdb(filteredata)
+    setdata(filteredata)
+
   }
     
     
