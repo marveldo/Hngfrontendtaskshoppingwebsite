@@ -2,6 +2,7 @@
   "name": "firstone",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://api.timbu.cloud/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",
     "@testing-library/jest-dom": "^5.17.0",
