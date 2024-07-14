@@ -7,7 +7,7 @@ import { Addtocartproducts } from "../logic";
 
 export const Productssection = () => {
 const Products = useSelector(state => state.Products)
-
+const [db, setdb] = React.useState(Products.data)
 const [data,setdata ] = React.useState(Products.data.slice(0,9))
 const [Showcard, setshowcard] = React.useState(false)
 const [broughtoutdata, setbroughtoutdata] = React.useState(null)
@@ -21,8 +21,8 @@ const navigate = useNavigate()
      setdata(Products.data.slice(0,10))
     }
   else{
-    const filteredata = data.filter((item)=> item.name.toLowerCase().includes(value.toLowerCase()))
-    setdata(filteredata)
+    const filteredata = db.filter((item)=> item.name.toLowerCase().includes(value.toLowerCase()))
+    setdb(filteredata)
   }
     
     
@@ -130,8 +130,8 @@ const navigate = useNavigate()
                
                  <div className="flex gap-x-3">
                     <div className="py-2 px-4 text-white cursor-pointer bg-black rounded-[16px]" onClick={()=>{setdata(Products.data.slice(0,9))}}>1</div>
-                    <div className={`py-2 ${Products.data.length <= 10 ? 'hidden' : ''} px-4 text-white cursor-pointer bg-black rounded-[16px]`} onClick={()=> {setdata(Products.data.slice(10,20))}}>2</div>
-                    <div className={`py-2 px-4 ${Products.data.length <= 20 ? 'hidden' : ''}   text-white cursor-pointer bg-black rounded-[16px]`} onClick={()=> {setdata(Products.data.slice(21,30))}}>3</div>
+                    <div className={`py-2 ${db.length <= 10 ? 'hidden' : ''} px-4 text-white cursor-pointer bg-black rounded-[16px]`} onClick={()=> {setdata(Products.data.slice(10,20))}}>2</div>
+                    <div className={`py-2 px-4 ${db.length <= 20 ? 'hidden' : ''}   text-white cursor-pointer bg-black rounded-[16px]`} onClick={()=> {setdata(Products.data.slice(21,30))}}>3</div>
                  </div>
           
 
