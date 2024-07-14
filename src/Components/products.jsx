@@ -19,6 +19,7 @@ const navigate = useNavigate()
     const value = event.target.value
     if(value === ''){
      setdata(Products.data.slice(0,10))
+     setdb(Products.data)
     }
   else{
     const filteredata = db.filter((item)=> item.name.toLowerCase().includes(value.toLowerCase()))
