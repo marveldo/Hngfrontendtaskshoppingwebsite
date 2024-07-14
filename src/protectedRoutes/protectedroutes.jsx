@@ -16,13 +16,10 @@ export const Homeprotected = ({children}) => {
         const api_key = process.env.REACT_APP_API_KEY
         const org_id = process.env.REACT_APP_ORG_ID
         const app_id = process.env.REACT_APP_APP_ID
-        console.log(api_key,app_id,org_id)
-        
         try{
         const response = await axios.get(`products?organization_id=${org_id}&reverse_sort=false&page=1&size=8&Appid=${app_id}&Apikey=${api_key}`)
         setdata(response.data.items)
         dispatch(Postproducts(response.data.items))
-        console.log(response.data)
         }
         catch(error){
          console.error(error)
