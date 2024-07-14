@@ -140,7 +140,7 @@ const [broughtoutdata, setbroughtoutdata] = React.useState(null)
 const Products = useSelector(state => state.Products)
 const navigate = useNavigate()
 const dispatch = useDispatch()
-console.log(randomdata)
+// console.log(randomdata)
 
 
 const showcard = (index) => {
