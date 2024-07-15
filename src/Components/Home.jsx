@@ -39,7 +39,7 @@ export const Navbar = (props) => {
         <div className="flex flex-col gap-y-12 text-black font-playdisplay">
             <h1 className="text-[23px]">Menu</h1>
             <div className="flex flex-col gap-y-7 text-black font-playdisplay list-none">
-                <Link to="/" className={`hover:text-primary ${Currentpath === "" ? 'text-primary' : ''} `} onClick={()=>{setresnav(false)}}>Home</Link>
+                <Link to="/" className={`hover:text-primary ${Currentpath === "/" ? 'text-primary' : ''} `} onClick={()=>{setresnav(false)}}>Home</Link>
                 <Link to="/products" className={`hover:text-primary ${Currentpath === "/products" ? 'text-primary' : '' }`} onClick={()=>{setresnav(false)}}>Shop</Link>
                 <a href="#section-about" className="hover:text-primary" onClick={()=>{setresnav(false)}}>About</a>
                 <a href="#section-footer" className="hover:text-primary" onClick={()=>{setresnav(false)}}>Contact</a>
