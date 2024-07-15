@@ -12,6 +12,7 @@ export const Navbar = (props) => {
     const location = useLocation()
     const [resnav, setresnav] = React.useState(false)
     const Currentpath = location.pathname
+    console.log(Currentpath)
     return (<>
     <div className="w-[100vw] resnavbar bg-[#F5F5F5]   px-3 py-3 flex fixed top-0 justify-between items-center z-40">
        <div className="font-kavoon text-primary min-[801px]:text-[40px] text-[24px] pe-20">Pendo</div>
