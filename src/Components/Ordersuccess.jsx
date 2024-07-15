@@ -9,7 +9,7 @@ export const Orders = () =>{
     const data = Cartitems.data
     return(<div className="overflow-hidden min-h-[100vh]">
          <Navbar/>
-         <div className="px-28 respad">
+         <div className="px-28 respad mb-auto">
             <div className="w-full pt-24  pb-10  p flex flex-col items-center text-center gap-y-5">
             <img src="StaticImages/Vectororder-confirmed.svg" className="min-[800px]:w-[120px] min-[800px]:h-[120px]" alt="Check mark"/>
             <h1 className="font-playdisplay text-[40px] largresfont">We've got your order</h1>
@@ -28,7 +28,7 @@ export const Orders = () =>{
              </div>
              <div className="pt-16">
            </div>
-           <div className="flex justify-end w-full mb-40 ">
+           <div className="flex justify-end w-full">
             <div className="flex flex-col rescartdiv gap-y-5">
             <div className="flex gap-x-40 rescartdiv ordercartdiv">
                 <div className="flex flex-col gap-y-7 font-playdisplay text-[16px]">

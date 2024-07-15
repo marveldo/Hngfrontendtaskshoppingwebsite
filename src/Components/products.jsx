@@ -99,7 +99,7 @@ const navigate = useNavigate()
             </div>
          <Navbar change={searchdata}/>
          <div className="px-28 respad">
-            <div className="flex gap-x-3 py-10 resgenpadding">
+            <div className="flex gap-x-3 py-10 resgenpadding mb-auto">
                 <Link to="/" className="py-3 px-4 rounded-full bg-[#F5F5F5]">
                 <img src="/StaticImages/Leftarrow.svg" alt="left arrow"/>
                </Link>
@@ -129,7 +129,7 @@ const navigate = useNavigate()
            })}
              </div>
 
-             <div className="pt-24 pb-9 w-full flex justify-center mb-40">
+             <div className="pt-24 pb-9 w-full flex justify-center">
                
                  <div className="flex gap-x-3">
                     <div className="py-2 px-4 text-white cursor-pointer bg-black rounded-[16px]" onClick={()=>{setdata(Products.data.slice(0,9))}}>1</div>

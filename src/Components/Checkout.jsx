@@ -22,7 +22,7 @@ export const Checkout = () => {
     return(
        <div className="overflow-hidden min-h-[100vh]">
          <Navbar/>
-         <div className="px-28 respad">
+         <div className="px-28 respad mb-auto">
          <div className="flex gap-x-3 py-10 resgenpadding">
                 <Link to="/cart" className="py-3 px-4 rounded-full bg-[#F5F5F5]">
                 <img src="/StaticImages/Leftarrow.svg" alt="left arrow"/>
@@ -141,7 +141,7 @@ export const Checkout = () => {
             <p className="font-playdisplay text-[16px]">Save this information for future checkouts</p>
          </div>
 
-         <div className="flex justify-end w-full mb-40 ">
+         <div className="flex justify-end w-full">
             <div className="flex flex-col rescartdiv gap-y-5">
             <div className="flex gap-x-40 rescartdiv">
                 <div className="flex flex-col gap-y-7 font-playdisplay text-[16px]">
