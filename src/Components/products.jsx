@@ -129,7 +129,7 @@ const navigate = useNavigate()
            })}
              </div>
 
-             <div className="pt-24 pb-9 w-full flex justify-center">
+             <div className="pt-24 pb-9 w-full flex justify-center mb-40">
                
                  <div className="flex gap-x-3">
                     <div className="py-2 px-4 text-white cursor-pointer bg-black rounded-[16px]" onClick={()=>{setdata(Products.data.slice(0,9))}}>1</div>

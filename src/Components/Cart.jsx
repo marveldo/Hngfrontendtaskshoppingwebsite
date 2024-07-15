@@ -77,7 +77,7 @@ React.useEffect(()=>{
               {Cartobjects}
              </div>
 
-             <div className={`pt-24 pb-9 w-full ${data.length < 1 ? 'hidden':'flex'} resmaincartdiv justify-end`}>
+             <div className={`pt-24 pb-9 w-full ${data.length < 1 ? 'hidden':'flex'} resmaincartdiv justify-end mb-auto`}>
                 <div className="flex gap-x-4 rescartdiv ">
                     <div className="flex gap-y-7 flex-col font-playdisplay text-[16px]">
                         <p>Subtotal</p>
