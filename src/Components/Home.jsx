@@ -6,17 +6,19 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Addtocartproducts } from "../logic";
 import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 export const Navbar = (props) => {
+    const location = useLocation()
     const [resnav, setresnav] = React.useState(false)
-
+    const Currentpath = location.pathname
     return (<>
     <div className="w-[100vw] resnavbar bg-[#F5F5F5]   px-3 py-3 flex fixed top-0 justify-between items-center z-40">
        <div className="font-kavoon text-primary min-[801px]:text-[40px] text-[24px] pe-20">Pendo</div>
        <div className="grid min-[1250px]:gap-x-24 grid-cols-4  min-[900px]:gap-x-10 max-[870px]:hidden list-none text-center text-black font-playdisplay  ">
         
-          <Link to="/" className="p-3 hover:text-primary">Home</Link>
-          <Link to="/products" className="p-3 hover:text-primary">Shop</Link>
+          <Link to="/" className={`p-3 hover:text-primary ${Currentpath === "" ? 'text-primary' : ''} `}>Home</Link>
+          <Link to="/products" className={`p-3 hover:text-primary ${Currentpath === "/products" ? 'text-primary' : '' }`}>Shop</Link>
           <a href="#section-about" className="p-3 hover:text-primary">About</a>
           <a href="#section-footer" className="p-3 hover:text-primary">Contact</a>
        </div>
@@ -37,11 +39,11 @@ export const Navbar = (props) => {
         <div className="flex flex-col gap-y-12 text-black font-playdisplay">
             <h1 className="text-[23px]">Menu</h1>
             <div className="flex flex-col gap-y-7 text-black font-playdisplay list-none">
-                <Link to="/" onClick={()=>{setresnav(false)}}>Home</Link>
-                <Link to="/products" onClick={()=>{setresnav(false)}}>Shop</Link>
-                <a href="#section-about" onClick={()=>{setresnav(false)}}>About</a>
-                <a href="#section-footer" onClick={()=>{setresnav(false)}}>Contact</a>
-                <Link to="/cart" onClick={()=>{setresnav(false)}}><img src="/StaticImages/Vector(1).svg" className="p-2" alt="cart logo"/></Link>
+                <Link to="/" className={`hover:text-primary ${Currentpath === "" ? 'text-primary' : ''} `} onClick={()=>{setresnav(false)}}>Home</Link>
+                <Link to="/products" className={`hover:text-primary ${Currentpath === "/products" ? 'text-primary' : '' }`} onClick={()=>{setresnav(false)}}>Shop</Link>
+                <a href="#section-about" className="hover:text-primary" onClick={()=>{setresnav(false)}}>About</a>
+                <a href="#section-footer" className="hover:text-primary" onClick={()=>{setresnav(false)}}>Contact</a>
+                <Link to="/cart"  className="hover:text-primary" onClick={()=>{setresnav(false)}}><img src="/StaticImages/Vector(1).svg" className="p-2" alt="cart logo"/></Link>
                 <li>SignUp</li>
             </div>
         </div>
