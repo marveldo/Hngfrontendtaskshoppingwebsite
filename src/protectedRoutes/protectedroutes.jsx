@@ -11,7 +11,6 @@ export const Homeprotected = ({children}) => {
     const [loading, setloading] = React.useState(true)
     const [data, setdata] = React.useState(null)
     const dispatch = useDispatch()
-    console.log(axios)
  
     const FetchfromBackend = async() => {
         const api_key = process.env.REACT_APP_API_KEY
