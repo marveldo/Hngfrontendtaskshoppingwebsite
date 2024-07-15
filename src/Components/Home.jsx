@@ -134,7 +134,7 @@ export const Footer = () => {
 }
 
 export const Home = (props) => {
-const [data,setdata ] = React.useState(props.data ? props.data : [])
+const [data,setdata ] = React.useState(props.data ? props.data.slice(0,11) : [])
 const [randomdata, setrandomdata] = React.useState(props.data ? props.data[0]: null)
 const [Showcard, setshowcard] = React.useState(false)
 const [reanimate, setreanimate] = React.useState(true)
@@ -204,11 +204,11 @@ else{
     setreanimate(true)
     const intervalid = setInterval(()=>{
         
-        if(data.length === 0){
+        if(props.data.length === 0){
         setrandomdata(null)
     }
     else{
-        setrandomdata(data[Math.floor(Math.random() * data.length)]);
+        setrandomdata(props.data[Math.floor(Math.random() * props.data.length)]);
         setreanimate(false)
     }
     }, 5000)
