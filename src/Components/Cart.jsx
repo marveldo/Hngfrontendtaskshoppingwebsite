@@ -61,7 +61,7 @@ React.useEffect(()=>{
 
 
 
-    return(<div className="overflow-hidden min-h-[100vh]">
+    return(<div className="overflow-hidden flex flex-col justify-between min-h-[100vh]">
          <Navbar/>
          <div className="px-28 respad">
             <div className="flex gap-x-3 py-10 resgenpadding">
@@ -77,7 +77,7 @@ React.useEffect(()=>{
               {Cartobjects}
              </div>
 
-             <div className={`pt-24 pb-9 w-full ${data.length < 1 ? 'hidden':'flex'} resmaincartdiv justify-end mb-auto`}>
+             <div className={`pt-24 pb-9 w-full ${data.length < 1 ? 'hidden':'flex'} resmaincartdiv  justify-end mb-40`}>
                 <div className="flex gap-x-4 rescartdiv ">
                     <div className="flex gap-y-7 flex-col font-playdisplay text-[16px]">
                         <p>Subtotal</p>

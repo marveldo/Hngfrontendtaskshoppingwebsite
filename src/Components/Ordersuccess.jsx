@@ -7,7 +7,7 @@ import { useSelector } from "react-redux"
 export const Orders = () =>{
     const Cartitems = useSelector(state => state.Cartitems)
     const data = Cartitems.data
-    return(<div className="overflow-hidden min-h-[100vh]">
+    return(<div className="overflow-hidden  flex flex-col justify-between min-h-[100vh]">
          <Navbar/>
          <div className="px-28 respad">
             <div className="w-full pt-24  pb-10  p flex flex-col items-center text-center gap-y-5">
