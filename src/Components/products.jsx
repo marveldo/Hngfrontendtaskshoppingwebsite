@@ -40,7 +40,7 @@ const navigate = useNavigate()
        setshowcard(true)
  }
 
-    return(<div className="overflow-hidden relative">
+    return(<div className="overflow-hidden relative min-h-[100vh]">
           <div className={`fixed top-0 ${Showcard? '' : 'hidden'}  h-[100vh] flex popupmaindiv  z-[100] justify-center items-center w-[100vw] bg-another-rgba `} >
                 <div className="popupnavdiv hidden m-0">
                 <div className="w-[100vw] resnavbar bg-[#F5F5F5]  px-6 py-3 flex justify-between items-center z-40">

@@ -61,7 +61,7 @@ React.useEffect(()=>{
 
 
 
-    return(<div className="overflow-hidden">
+    return(<div className="overflow-hidden min-h-[100vh]">
          <Navbar/>
          <div className="px-28 respad">
             <div className="flex gap-x-3 py-10 resgenpadding">
