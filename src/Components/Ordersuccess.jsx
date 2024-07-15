@@ -28,7 +28,7 @@ export const Orders = () =>{
              </div>
              <div className="pt-16">
            </div>
-           <div className="flex justify-end w-full">
+           <div className="flex justify-end w-full mb-40">
             <div className="flex flex-col rescartdiv gap-y-5">
             <div className="flex gap-x-40 rescartdiv ordercartdiv">
                 <div className="flex flex-col gap-y-7 font-playdisplay text-[16px]">
