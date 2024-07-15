@@ -12,13 +12,12 @@ export const Navbar = (props) => {
     const location = useLocation()
     const [resnav, setresnav] = React.useState(false)
     const Currentpath = location.pathname
-    console.log(Currentpath)
     return (<>
     <div className="w-[100vw] resnavbar bg-[#F5F5F5]   px-3 py-3 flex fixed top-0 justify-between items-center z-40">
        <div className="font-kavoon text-primary min-[801px]:text-[40px] text-[24px] pe-20">Pendo</div>
        <div className="grid min-[1250px]:gap-x-24 grid-cols-4  min-[900px]:gap-x-10 max-[870px]:hidden list-none text-center text-black font-playdisplay  ">
         
-          <Link to="/" className={`p-3 hover:text-primary ${Currentpath === "" ? 'text-primary' : ''} `}>Home</Link>
+          <Link to="/" className={`p-3 hover:text-primary ${Currentpath === "/" ? 'text-primary' : ''} `}>Home</Link>
           <Link to="/products" className={`p-3 hover:text-primary ${Currentpath === "/products" ? 'text-primary' : '' }`}>Shop</Link>
           <a href="#section-about" className="p-3 hover:text-primary">About</a>
           <a href="#section-footer" className="p-3 hover:text-primary">Contact</a>
