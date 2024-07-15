@@ -9,7 +9,7 @@ export const Orders = () =>{
     const data = Cartitems.data
     return(<div className="overflow-hidden min-h-[100vh]">
          <Navbar/>
-         <div className="px-28 respad mb-auto">
+         <div className="px-28 respad">
             <div className="w-full pt-24  pb-10  p flex flex-col items-center text-center gap-y-5">
             <img src="StaticImages/Vectororder-confirmed.svg" className="min-[800px]:w-[120px] min-[800px]:h-[120px]" alt="Check mark"/>
             <h1 className="font-playdisplay text-[40px] largresfont">We've got your order</h1>

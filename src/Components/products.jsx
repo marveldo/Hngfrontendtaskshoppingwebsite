@@ -99,7 +99,7 @@ const navigate = useNavigate()
             </div>
          <Navbar change={searchdata}/>
          <div className="px-28 respad">
-            <div className="flex gap-x-3 py-10 resgenpadding mb-auto">
+            <div className="flex gap-x-3 py-10 resgenpadding">
                 <Link to="/" className="py-3 px-4 rounded-full bg-[#F5F5F5]">
                 <img src="/StaticImages/Leftarrow.svg" alt="left arrow"/>
                </Link>

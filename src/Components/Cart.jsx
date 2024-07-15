@@ -63,7 +63,7 @@ React.useEffect(()=>{
 
     return(<div className="overflow-hidden min-h-[100vh]">
          <Navbar/>
-         <div className="px-28 respad mb-auto">
+         <div className="px-28 respad">
             <div className="flex gap-x-3 py-10 resgenpadding">
                 <Link to="/" className="py-3 px-4 rounded-full bg-[#F5F5F5]">
                 <img src="/StaticImages/Leftarrow.svg" alt="left arrow"/>

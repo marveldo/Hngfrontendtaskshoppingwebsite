@@ -77,7 +77,7 @@ export const Navbar = (props) => {
 
 export const Footer = () => {
       return(
-        <div id="section-footer" className="flex flex-col bg-primary">
+        <div id="section-footer" className="flex flex-col bg-primary mt-auto">
         <div className="sm:p-28 p-10 bg-primary flex resfooter flex-row  justify-between  w-full relative">
             <div className="flex flex-col gap-y-6 w-[33%] mb-7 resmaindiv">
                 <h1 className="font-kavoon text-white text-[40px]">Pendo</h1>
