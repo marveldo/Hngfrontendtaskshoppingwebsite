@@ -3,6 +3,7 @@ import axios from "axios"
 import { Home } from "../Components/Home";
 import { useDispatch, useSelector } from "react-redux";
 import { Postproducts,Setcartproducts } from "../logic";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -18,7 +19,7 @@ export const Homeprotected = ({children}) => {
         const app_id = process.env.REACT_APP_APP_ID
 
         try{
-        const response = await axios.get(`https://api.timbu.cloud/products?organization_id=${org_id}&reverse_sort=false&page=1&size=30&Appid=${app_id}&Apikey=${api_key}`)
+        const response = await axios.get(`/products/`)
         setdata(response.data.items)
         dispatch(Postproducts(response.data.items))
 
@@ -49,11 +50,11 @@ export const RouteProtected = ({children}) => {
         const app_id = process.env.REACT_APP_APP_ID
         
         try{
-        const response = await axios.get(`https://api.timbu.cloud/products?organization_id=${org_id}&reverse_sort=false&page=1&size=30&Appid=${app_id}&Apikey=${api_key}`)
+        const response = await axios.get(`/products/`)
         dispatch(Postproducts(response.data.items))
         }
         catch(error){
-        console.error(error)
+        console.log(error)
         }
         finally{
             setloading(false)
@@ -66,6 +67,32 @@ export const RouteProtected = ({children}) => {
       return Products.data ? children : <div className="h-[100vh]"></div>
 
     
+}
+
+export const LoginProtected =  ({children}) => {
+    const user = useSelector(state => state.User)
+    const navigate = useNavigate()
+     
+    React.useEffect(()=> {
+        if(user.user){
+            navigate('/', {replace : true})
+        }
+    })
+    return user.user ? null : children
+}
+
+export const NotLoggedInProtected = ({children}) => {
+    const user =  useSelector(state => state.User)
+    const navigate = useNavigate()
+
+    React.useEffect(()=> {
+        if(!user.user){
+            navigate('/', {replace : true})
+        }
+    })
+
+    return user.user ? children : null
+
 }
 
 

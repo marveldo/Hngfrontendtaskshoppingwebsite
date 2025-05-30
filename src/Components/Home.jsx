@@ -178,7 +178,7 @@ if (data){
     productsdata =  data.map((obj,index)=> {
         return( <div key={obj.id} className="flex flex-col  gap-y-2 p-4 rounded-[8px] cursor-pointer bg-white  shadow-another-rgba shadow-sm" onClick={()=>{showcard(index)}}>
             <div className="w-full relative">
-            <img src={`https://api.timbu.cloud/images/${obj.photos[0].url}`} className="w-full   rounded-[8px]" alt="chair"/>
+            <img src={`${obj.product_img}`} className="w-full   rounded-[8px]" alt="chair"/>
           
             </div>
             
@@ -191,7 +191,7 @@ if (data){
                 <img src="/StaticImages/Star5.svg" alt="star"/>
             </div>
             <p className="text-black font-playdisplay text-[14px]">{obj.description.slice(0,20)}...........</p>
-            <p className="font-playdisplay text-[16px] ">N{obj.current_price[0].NGN }</p>
+            <p className="font-playdisplay text-[16px] ">N{obj.current_price}</p>
         </div>)
        })
 }
@@ -253,7 +253,7 @@ else{
                
                     <div className="pe-12 flex justify-center items-center popupimgdiv w-[120%] relative">
                         <img src="./StaticImages/Addtowishlistredwishlist.svg" alt="wishlist" className="absolute top-3 right-3 hidden popupicon2"/>
-                        <img src={broughtoutdata? `https://api.timbu.cloud/images/${broughtoutdata.photos[0].url}`: ''} className="w-[190px] h-[180px] popupimg rounded-[16px]" alt="chair"/>
+                        <img src={broughtoutdata? broughtoutdata.product_img : ''} className="w-[190px] h-[180px] popupimg rounded-[16px]" alt="chair"/>
                     </div>
                     <div className="border-s-2 border-s-[#8E8E93] ps-12 relative popupinfo">
                         
@@ -268,7 +268,7 @@ else{
                                 <img src="./StaticImages/Star5.svg" className="w-[24px] h-[24px]" alt="star"/>
                                 <img src="./StaticImages/Star5.svg" className="w-[24px] h-[24px]" alt="star"/>
                             </div>
-                            <h1 className="text-[20px] font-playdisplay font-[600]">N{broughtoutdata? broughtoutdata.current_price[0].NGN : ''}</h1>
+                            <h1 className="text-[20px] font-playdisplay font-[600]">N{broughtoutdata? broughtoutdata.current_price: ''}</h1>
                             <p className="text-[12px] font-playdisplay">{broughtoutdata? broughtoutdata.description : ''} </p>
                             <div className="flex justify-start max-[690px]:justify-center max-[690px]:mt-4">
                             <button className="flex rounded-[8px] items-center gap-x-3 py-3 px-9 bg-primary resbutton  text-white " onClick={Cartfunction}>Add to cart <img src="StaticImages/PlusOutline.svg" className="ms-auto hidden popupicon2" alt="plus icon"/></button>
@@ -302,7 +302,7 @@ else{
                 </div>
 
                 <div className="w-[50%] resdiv p-3">
-                    <img src={randomdata?`https://api.timbu.cloud/images/${randomdata.photos[0].url}`: ''} className="w-full" alt="chair_img"/>
+                    <img src={randomdata?`${randomdata.product_img}`: ''} className="w-full" alt="chair_img"/>
                 </div>
             </div>
            
@@ -322,8 +322,8 @@ else{
 
        <div  className="flex gap-x-1 px-2 py-4 ">
         <div className="px-28 respad w-full flex gap-x-16 overflow-x-hidden" >
-            <div className="min-w-full h-[450px]  specdiv rounded-[8px]" style={{backgroundImage: `url(${randomdata ? 'https://api.timbu.cloud/images/'+ randomdata.photos[0].url : ''})`}}>
-              <div className="w-full h-full flex bg-another-rgba rounded-[8px] items-end p-9">
+            <div className="min-w-full h-[450px]  specdiv rounded-[8px]" style={{backgroundImage: `url(${randomdata ? randomdata.product_img : ''})`}}>
+              <div className="w-full h-full flex items-end bg-another-rgba rounded-[8px] p-9">
                 <div className="flex flex-col gap-y-3 text-white font-playdisplay">
                     <h1 className="text-[24px]">{ randomdata ? randomdata.name : ''}</h1>
                     <div className="text-[16px]">

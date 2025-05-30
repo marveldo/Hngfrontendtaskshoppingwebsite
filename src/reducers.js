@@ -1,4 +1,4 @@
-import { Addproducts , ADDITEM , REMOVEITEM, SETITEM, MINUSQUANTITY, CLEARCART} from "./constants";
+import { Addproducts , ADDITEM , REMOVEITEM, SETITEM, MINUSQUANTITY, CLEARCART, LOGINUSER, LOGOUTUSER} from "./constants";
 
 
 const InitialProductState = {
@@ -8,6 +8,9 @@ const InitialCartState = {
     data: []
 }
 
+const InitialUserState = {
+    user : null
+}
 
 export const Productreducer = (state = InitialProductState, action)=> {
 
@@ -21,6 +24,23 @@ export const Productreducer = (state = InitialProductState, action)=> {
             return state
     }
     
+}
+
+export const UserReducer = (state = InitialUserState, action) => {
+    switch(action.type){
+        case LOGINUSER :
+            return({
+                ...state,
+                user : action.payload
+            })
+        case LOGOUTUSER :
+            return ({
+                ...state ,
+                user : null
+            })
+        default :
+        return state
+    }
 }
 
 export const CartReducer = (state = InitialCartState, action) => {

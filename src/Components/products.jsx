@@ -85,7 +85,7 @@ const navigate = useNavigate()
                                 <img src="./StaticImages/Star5.svg" className="w-[24px] h-[24px]" alt="star"/>
                                 <img src="./StaticImages/Star5.svg" className="w-[24px] h-[24px]" alt="star"/>
                             </div>
-                            <h1 className="text-[20px] font-playdisplay font-[600]">N{broughtoutdata? broughtoutdata.current_price[0].NGN : ''}</h1>
+                            <h1 className="text-[20px] font-playdisplay font-[600]">N{broughtoutdata? broughtoutdata.current_price : ''}</h1>
                             <p className="text-[12px] font-playdisplay">{broughtoutdata? broughtoutdata.description : ''} </p>
                             <div className="flex justify-start max-[690px]:justify-center max-[690px]:mt-4">
                             <button className="flex rounded-[8px] items-center gap-x-3 py-3 px-9 bg-primary resbutton  text-white " onClick={Cartfunction}>Add to cart <img src="StaticImages/PlusOutline.svg" className="ms-auto hidden popupicon2" alt="plus icon"/></button>
@@ -113,7 +113,7 @@ const navigate = useNavigate()
               return(
                 <div key={obj.id} className="w-full flex justify-between border-b-[#CAC4D0] border-b-2 py-8" onClick={()=>{showdiv(index)}} >
                 <div className="flex gap-x-10 resgap">
-                    <img src={`https://api.timbu.cloud/images/${obj.photos[0].url}`} className="w-[100px] h-[100px] rounded-[8px]" alt="chair image"/>
+                    <img src={obj.product_img} className="w-[100px] h-[100px] rounded-[8px]" alt="chair image"/>
                     <div className="flex flex-col gap-y-2 justify-end">
                         <h1 className="font-playdisplay text-[20px] font-[500] largecartfont">{obj.name}</h1>
                         <p className="smallcartfont">{obj.description.slice(0,50)}.....</p>
@@ -121,7 +121,7 @@ const navigate = useNavigate()
                     </div>
                 </div>
                 <div className="flex flex-col gap-y-4 font-playdisplay text-[20px] justify-end">
-                    <p className="largecartfont">N{obj.current_price[0].NGN}</p>
+                    <p className="largecartfont">N{obj.current_price}</p>
                 </div>
                 
             </div>

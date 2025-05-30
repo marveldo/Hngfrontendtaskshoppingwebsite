@@ -1,8 +1,22 @@
 
 import { json } from "react-router-dom";
-import { Addproducts, SETITEM , ADDITEM, REMOVEITEM, MINUSQUANTITY , CLEARCART} from "./constants";
+import { Addproducts, SETITEM , ADDITEM, REMOVEITEM, MINUSQUANTITY , CLEARCART, LOGINUSER, LOGOUTUSER} from "./constants";
 
 
+
+export const LoginUser = (data) => {
+    localStorage.setItem('user', JSON.stringify(data))
+    return ({
+        type : LOGINUSER,
+        payload : data
+    })
+}
+export const Logoutuser = () => {
+    localStorage.removeItem('user')
+    return ({
+        type : LOGOUTUSER
+    })
+}
 export const Postproducts = (data) => {
     return ({
         type : Addproducts,
