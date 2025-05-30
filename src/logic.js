@@ -38,9 +38,9 @@ export const Addtocartproducts = (newdata) => {
     const newest_data = {
         id : newdata.id,
         name : newdata.name,
-        price : newdata.current_price[0].NGN ,
+        price : newdata.current_price,
         description : newdata.description,
-        picture : newdata.photos[0].url ,
+        picture : newdata.product_img ,
         quantity : 1
         
     }
@@ -67,9 +67,9 @@ export const Addtocartcart = (newdata) => {
     const newest_data = {
         id : newdata.id,
         name : newdata.name,
-        price : newdata.price ,
+        price : newdata.current_price ,
         description : newdata.description,
-        picture : newdata.picture ,
+        picture : newdata.product_img,
         quantity : 1
         
     }

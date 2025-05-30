@@ -70,14 +70,14 @@ const navigate = useNavigate()
                
                     <div className="pe-12 flex justify-center items-center popupimgdiv w-[120%] relative">
                         <img src="./StaticImages/Addtowishlistredwishlist.svg" alt="wishlist" className="absolute top-3 right-3 hidden popupicon2"/>
-                        <img src={broughtoutdata? `https://api.timbu.cloud/images/${broughtoutdata.photos[0].url}`: ''} className="w-[190px] h-[180px] popupimg rounded-[16px]" alt="chair"/>
+                        <img src={broughtoutdata? broughtoutdata.product_img : ''} className="w-[190px] h-[180px] popupimg rounded-[16px]" alt="chair"/>
                     </div>
                     <div className="border-s-2 border-s-[#8E8E93] ps-12 relative popupinfo">
                         
                         <div className="py-2 pe-4 flex flex-col gap-y-4 justify-start relative">
                             <img src="./StaticImages/Vectorx-cancel.svg" className="absolute top-7 right-7 w-[20px] h-[20px] popupicon1 " onClick={()=>{setshowcard(false)}}/>
                             <p className="text-[12px] font-playdisplay">SOFAS</p>
-                            <h1 className="text-[20px] font-playdisplay font-[600]">{broughtoutdata? broughtoutdata.name: ''}</h1>
+                            <h1 className="text-[20px] font-playdisplay font-[600]">{broughtoutdata? broughtoutdata.name : ''}</h1>
                             <div className="flex gap-x-1">
                                 <img src="./StaticImages/Star5.svg" className="w-[24px] h-[24px]" alt="star"/>
                                 <img src="./StaticImages/Star5.svg" className="w-[24px] h-[24px]" alt="star"/>

@@ -33,7 +33,7 @@ if(data !== null){
           </div>
       </div>
       <div className="flex flex-col gap-y-4 font-playdisplay text-[20px]">
-          <p className="largecartfont">N{parseInt(obj.price[0]) * obj.quantity}</p>
+          <p className="largecartfont">N{parseInt(obj.price) * obj.quantity}</p>
           <div className="flex justify-between cursor-pointer" onClick={()=>{dispatch(RemovefromProducts(obj.id))}}>
               <img src="/StaticImages/Dustbin.svg" alt="delete icon"/>
               <p className="text-[14px]">Delete</p>
@@ -90,10 +90,10 @@ React.useEffect(()=>{
                         </Link>
                     </div>
                     <div className="flex gap-y-7 flex-col items-end font-playdisplay text-[16px]">
-                    <p>N{data.reduce((acc, obj)=> acc + (parseInt(obj.price[0]) * obj.quantity),0)}</p>
+                    <p>N{data.reduce((acc, obj)=> acc + (parseInt(obj.price) * obj.quantity),0)}</p>
                         <p>N10000</p>
                         <p>N2500</p>
-                        <p className="font-[700]">N{data.reduce((acc, obj)=> acc + (parseInt(obj.price[0]) * obj.quantity),0) + 10000+2500}</p>
+                        <p className="font-[700]">N{data.reduce((acc, obj)=> acc + (parseInt(obj.price) * obj.quantity),0) + 10000+2500}</p>
                         <Link to="/checkout" className="flex gap-x-4 p-4 spec-button bg-primary rounded-[8px] items-center ">
                            
                             <p className="text-[16px] text-white">Continue to payment</p>
