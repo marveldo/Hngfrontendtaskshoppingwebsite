@@ -151,10 +151,10 @@ export const Checkout = () => {
                         <p className="font-[700]">Total</p> 
                 </div>
                 <div className="flex flex-col gap-y-7 font-playdisplay text-[16px]">
-                       <p>N{data.reduce((acc, obj)=> acc + (parseInt(obj.price[0]) * obj.quantity),0)}</p>
+                       <p>N{data.reduce((acc, obj)=> acc + (parseInt(obj.price) * obj.quantity),0)}</p>
                         <p>N10000</p>
                         <p>N2500</p>
-                        <p className="font-[700]">N{data.reduce((acc, obj)=> acc + (parseInt(obj.price[0]) * obj.quantity),0) + 10000 + 2500}</p>
+                        <p className="font-[700]">N{data.reduce((acc, obj)=> acc + (parseInt(obj.price) * obj.quantity),0) + 10000 + 2500}</p>
                 </div>
 
             </div>
