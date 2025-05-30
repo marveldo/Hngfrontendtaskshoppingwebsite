@@ -20,7 +20,7 @@ if(data !== null){
     return(
       <div key={obj.id} className="w-full flex justify-between border-b-[#CAC4D0] border-b-2 py-8">
       <div className="flex gap-x-10 resgap">
-          <img src={`https://api.timbu.cloud/images/${obj.picture}`} className="w-[100px] h-[100px] rounded-[8px]" alt="chair image"/>
+          <img src={`${obj.picture}`} className="w-[100px] h-[100px] rounded-[8px]" alt="chair image"/>
           <div className="flex flex-col gap-y-2">
               <h1 className="font-playdisplay text-[20px] font-[500] largecartfont">{obj.name}</h1>
               <p className="smallcartfont">{obj.description.slice(0,25)}.....</p>
